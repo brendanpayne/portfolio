@@ -2,6 +2,9 @@
   "name": "portfolio",
   "version": "0.1.0",
   "private": true,
+  "description": "Portfolio site for Brendan Payne",
+  "repository": "https://github.com/brendanpayne/portfolio",
+  "author": "Brendan Payne <brendan@compu-medic.net>",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,12 +12,17 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "next": "13.5.4",
     "react": "^18",
     "react-dom": "^18",
-    "next": "13.5.4"
+    "three": "^0.157.0"
   },
   "devDependencies": {
     "eslint": "^8",
     "eslint-config-next": "13.5.4"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.6.0"
   }
 }
