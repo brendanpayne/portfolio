@@ -1,5 +1,6 @@
 import { Fragment, useEffect, useState } from 'react';
 import { Section } from 'components/Section';
+import { Transition } from 'components/Transition';
 import styles from './Intro.module.css';
 
 
@@ -12,17 +13,24 @@ export function Intro({ id, sectionRef, scrollIndicatorHidden, ...rest}) {
             id={id}
             ref={sectionRef}
             aria-labelledby={titleId}
-            tabIndex={-1} // This is to prevent the section from being focused when the user clicks on the scroll indicator
+            tabIndex={-1} 
             {...rest}
 
         >
-            <Fragment>
-                <header className={styles.text}>
-                    <h1 className={styles.title} id={titleId}>
-                        Brendan Payne
-                    </h1>
-                </header>
-            </Fragment>
+            <Transition in timeout={3000}>
+                {(isPresent, status) => (
+                <Fragment>
+                    <header className={styles.text}>
+                        <h1 className={styles.title} data-present={isPresent} id={titleId}>
+                            Brendan Payne
+                        </h1>
+                        <p className={styles.description} data-present={isPresent}>
+                            Software Engineer
+                        </p>
+                    </header>
+                </Fragment>
+                )}
+            </Transition>
         </Section>
     )
 }
