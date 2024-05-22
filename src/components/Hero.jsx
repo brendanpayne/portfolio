@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 
 import { styles } from "../style";
 import { WavesCanvas } from "./canvas";
+import TextDecode from '../utils/reveal.jsx';
 
 const Hero = () => {
   return (
@@ -12,10 +13,10 @@ const Hero = () => {
       >
         <div>
           <h1 className={`${styles.heroHeadText} text-white`}>
-            Brendan <span className='text-[#915EFF]'>Payne</span>
+            <TextDecode text='Brendan Payne' />
           </h1>
           <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-            Software Developer
+            <TextDecode text='Software Developer' />
           </p>
         </div>
       </div>

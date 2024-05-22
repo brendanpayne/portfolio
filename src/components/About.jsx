@@ -6,6 +6,7 @@ import { styles } from "../style";
 
 const About = () => {
   const [scrollY, setScrollY] = useState(0);
+  const [reveal, setReveal] = useState(false);
   const controls = useAnimation();
   const aboutRef = useRef(null);
 
@@ -24,19 +25,20 @@ const About = () => {
     const aboutSection = aboutRef.current;
     if (aboutSection) {
       const aboutTop = aboutSection.getBoundingClientRect().top + window.scrollY;
-      if (scrollY >= aboutTop) {
+      if (scrollY >= aboutTop && !reveal) {
         controls.start({ y: 0, opacity: 1 });
-      } else {
+        setReveal(true);
+      } else if (scrollY < aboutTop && !reveal) {
         controls.start({ y: 100, opacity: 0 });
       }
     }
-  }, [scrollY, controls]);
+  }, [scrollY, controls, reveal]);
 
   return (
     <section
       id='about'
       ref={aboutRef}
-      className={`relative w-full h-screen mx-auto flex justify-center items-center`}
+      className={`relative w-full h-screen mx-auto flex justify-center items-center bg-primary rounded-t-3xl`}
     >
       <motion.div
         initial={{ y: 100, opacity: 0 }}
