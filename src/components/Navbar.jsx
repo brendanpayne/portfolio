@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-
 import { styles } from '../style';
 import { navLinks } from '../constants';
 import { logo, menu, close } from '../assets';
@@ -8,30 +7,24 @@ import { logo, menu, close } from '../assets';
 const Navbar = () => {
   const [active, setActive] = useState('');
   const [toggle, setToggle] = useState(false);
+
   return (
-    <nav
-      className={`
-        ${styles.paddingX} w-full flex items-center py-5 fixed top-0 z-20 bg-primary opacity-95
-      `}
-    >
-      <div className='w-full flex justify-between items-center max-w-7xl mx-auto'>
-        <Link 
+    <nav className="fixed left-0 top-0 min-h-screen w-16 bg-primary text-gray-400 flex flex-col items-center py-8 space-y-4 z-10">
+      <div className='mb-8'>
+        <Link
           to="/"
-          className='flex items-center gap-2'
           onClick={() => {
             setActive('');
             window.scrollTo(0, 0);
           }}
         >
           <img src={logo} alt="logo" className='w-9 h-9 object-contain' />
-          <p className='text-white text-[18px] font-bold cursor-pointer flex'>
-            Brendan&nbsp;
-            <span className='text-[#915EFF]'>Payne</span>
-          </p>
         </Link>
-        <ul className='list-none hidden sm:flex flex-row gap-10'>
+      </div>
+      <div className='flex flex-1 flex-col justify-between'>
+        <ul className='list-none flex flex-col items-center space-y-[50px]'>
           {navLinks.map((link) => (
-            <li key={link.id}>
+            <li key={link.id} className="transform rotate-90">
               <Link
                 to={`#${link.id}`}
                 className={`
@@ -49,38 +42,15 @@ const Navbar = () => {
             </li>
           ))}
         </ul>
-        <div
-          className='sm:hidden block d-flex flex-column-reverse'
-          onClick={() => setToggle(!toggle)}
-        >
-          <div className={`${!toggle ? 'hidden' : ''} bg-primary opacity-60 navmenu`}>
-            <ul className='list-none flex justify-start items-start flex-col gap-4 p-6'>
-              {navLinks.map((link) => (
-                <li key={link.id}>
-                  <Link
-                    to={`#${link.id}`}
-                    className={`
-                      text-[18px] font-medium cursor-pointer
-                      ${active === link.id ? 'text-white' : 'text-secondary'}
-                      font-poppins font-medium cursor-pointer text-[16px]
-                    `}
-                    onClick={() => {
-                      setToggle(!toggle)
-                      setActive(link.id);
-                      window.scrollTo(0, 0);
-                    }}
-                  >
-                    {link.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <img src={toggle ? close : menu} alt="menu" className='w-6 h-6' />
-        </div>
+        <ul className='list-none flex flex-col items-center space-y-[40px]'>
+          <li className='text-[12px] transform rotate-90'><a href="mailto:brendan@iampayne.com" className='hover:text-white'>Email</a></li>
+          <li className='text-[12px] transform rotate-90'><a href="https://github.com/brendanpayne" className='hover:text-white'>GitHub</a></li>
+          <li className='text-[12px] transform rotate-90'><a href="https://linkedin.com/in/payneb2" className='hover:text-white'>LinkedIn</a></li>
+          <li className='text-[12px] transform rotate-90'><a href="https://twitter.com/username" className='hover:text-white'>Twitter</a></li>
+        </ul>
       </div>
     </nav>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;
