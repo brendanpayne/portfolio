@@ -39,31 +39,44 @@ const About = () => {
     <section
       id='about'
       ref={aboutRef}
-      className="relative w-full h-screen mx-auto flex justify-between items-center bg-primary" 
-    >
+      className="relative w-full h-screen mx-auto flex flex-col-reverse md:flex-row justify-between items-center bg-primary"     >
       <motion.div
         initial='hidden'
         animate={controls}
         variants={fadeIn('right', 'spring', 0.5, 1)}
-        className="w-1/2 h-full bg-primary flex justify-center items-center"
+        className="w-full md:w-1/2 h-full bg-primary flex justify-center items-center"
       >
         <Card3DCanvas imageUrl={'https://i.imgur.com/RcAfYhF.jpeg'} />
       </motion.div>
       <motion.div
         initial='hidden'
         animate={controls}
-        variants={textVariant(0.5)}
-        className=" flex flex-col justify-center items-start px-24 w-1/2 h-full bg-primary" 
-      >
-        <h1 className={`${styles.sectionHeadText} text-white`}>
-          <TextDecode text='About Me' />
-        </h1>
-        <p className={`${styles.sectionSubText} mt-2 text-white-100`}>
-          <TextDecode text='I am a software developer based in the United States.' />
+        variants={textVariant()}
+        className="flex flex-col justify-center items-start px-24 md:px-8 w-full md:w-1/2 h-full bg-primary pt-24" 
+      > 
+        <p className={`${styles.sectionSubText} text-white-100`}>
+          <TextDecode text='Introduction' />
+        </p>
+        <h2 className={`${styles.sectionHeadText} text-white`}>
+          <TextDecode text="Hey, I'm Brendan" />
+        </h2>
+          <p
+          initial='hidden'
+          variants={fadeIn('left', 'spring', 0.1, 1)}
+          animate={controls}
+          className='flex flex-col mt-4 text-secondary text-[18px] font-medium max-w-3xl leading-[30px]'
+        >
+          <TextDecode text={`
+            I'm a software developer soon-to-be based in the Greater Boston Area. My expertise lies
+            in full-stack development, with most of my experience being in mobile application development leveraging
+            technologies like Kotlin, Swift, and React Native. I'm passionate about creating innovative solutions
+            to complex problems and I'm always looking to learn new things. Let's innovate and create something
+            amazing together!
+          `} />
         </p>
       </motion.div>
     </section>
   );
-};
+}
 
 export default About;

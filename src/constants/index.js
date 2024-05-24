@@ -281,12 +281,7 @@ import {
       name: "LinkedIn",
       url: "https://linkedin.com/in/payneb2",
       icon: linkedin,
-    },
-    {
-      name: "Twitter",
-      url: "https://twitter.com/username",
-      icon: twitter,
-    },
+    }
   ];
   
   export { services, technologies, experiences, testimonials, projects, socials };
