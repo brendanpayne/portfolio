@@ -23,6 +23,10 @@ import {
     jobit,
     tripguide,
     threejs,
+    github,
+    linkedin,
+    twitter,
+    email,
   } from "../assets";
   
   export const navLinks = [
@@ -261,5 +265,28 @@ import {
       source_code_link: "https://github.com/",
     },
   ];
+
+  const socials = [
+    {
+      name: "Email",
+      url: "mailto:brendan@iampayne.com",
+      icon: email,
+    },
+    {
+      name: "GitHub",
+      url: "https://github.com/brendanpayne",
+      icon: github,
+    },
+    {
+      name: "LinkedIn",
+      url: "https://linkedin.com/in/payneb2",
+      icon: linkedin,
+    },
+    {
+      name: "Twitter",
+      url: "https://twitter.com/username",
+      icon: twitter,
+    },
+  ];
   
-  export { services, technologies, experiences, testimonials, projects };
+  export { services, technologies, experiences, testimonials, projects, socials };

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { styles } from '../style';
-import { navLinks } from '../constants';
+import { navLinks, socials } from '../constants';
 import { logo, menu, close } from '../assets';
 
 const Navbar = () => {
@@ -28,9 +28,9 @@ const Navbar = () => {
               <Link
                 to={`#${link.id}`}
                 className={`
-                  text-[18px] font-medium cursor-pointer
-                  ${active === link.id ? 'text-white' : 'text-secondary'}
-                  hover:text-white
+                  text-[18px] font-medium cursor-pointer text-white
+                  ${active === link.id ? 'opacity-100' : 'opacity-70'}
+                  hover:opacity-100 transition-opacity duration-300
                 `}
                 onClick={() => {
                   setActive(link.id);
@@ -43,10 +43,20 @@ const Navbar = () => {
           ))}
         </ul>
         <ul className='list-none flex flex-col items-center space-y-[40px]'>
-          <li className='text-[12px] transform rotate-90'><a href="mailto:brendan@iampayne.com" className='hover:text-white'>Email</a></li>
-          <li className='text-[12px] transform rotate-90'><a href="https://github.com/brendanpayne" className='hover:text-white'>GitHub</a></li>
-          <li className='text-[12px] transform rotate-90'><a href="https://linkedin.com/in/payneb2" className='hover:text-white'>LinkedIn</a></li>
-          <li className='text-[12px] transform rotate-90'><a href="https://twitter.com/username" className='hover:text-white'>Twitter</a></li>
+          {socials.map((social) => (
+            <li key={social.id}>
+              <a
+                href={social.url}
+                target='_blank'
+                rel='noreferrer'
+                className={`
+                  cursor-pointer
+                `}
+              >
+                <img src={social.icon} alt={social.id} className='w-6 h-6 object-contain opacity-70 hover:opacity-100 transition-opacity duration-300' />
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
     </nav>
