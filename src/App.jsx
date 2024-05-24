@@ -7,17 +7,25 @@ const App = () => {
     <BrowserRouter>
       <div className="relative z-0 bg-primary">
         <Navbar />
-        <div className="sticky top-0 z-1">
-          <Hero />
-        </div>
         <div className="scroll-container" style={{ scrollSnapType: 'y mandatory', scrollBehavior: 'smooth' }}>
+          <div className="sticky top-0 z-1" style={{scrollSnapAlign: 'start'}}>
+            <Hero />
+          </div>
           <div className="relative z-2" style={{ scrollSnapAlign: 'start' }}>
             <About />
           </div>
-          <Experience />
-          <Tech />
-          <Works />
-          <Feedbacks />
+          <div style={{ scrollSnapAlign: 'start' }}>
+            <Experience />
+          </div>
+          <div style={{ scrollSnapAlign: 'start' }}>
+            <Tech />
+          </div>
+          <div style={{ scrollSnapAlign: 'start' }}>
+            <Works />
+          </div>
+          <div style={{ scrollSnapAlign: 'start' }}>
+            <Feedbacks />
+          </div>
         </div>
         <div className="relative z-0">
           <Contact />

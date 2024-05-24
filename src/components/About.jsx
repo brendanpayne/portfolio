@@ -1,8 +1,9 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import TextDecode from '../utils/reveal.jsx';
-
+import { Card3DCanvas } from "./canvas";
 import { styles } from "../style";
+import { textVariant, fadeIn } from '../utils/motion';
 
 const About = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -26,10 +27,10 @@ const About = () => {
     if (aboutSection) {
       const aboutTop = aboutSection.getBoundingClientRect().top + window.scrollY;
       if (scrollY >= aboutTop && !reveal) {
-        controls.start({ y: 0, opacity: 1 });
+        controls.start('show');
         setReveal(true);
       } else if (scrollY < aboutTop && !reveal) {
-        controls.start({ y: 100, opacity: 0 });
+        controls.start('hidden');
       }
     }
   }, [scrollY, controls, reveal]);
@@ -38,18 +39,26 @@ const About = () => {
     <section
       id='about'
       ref={aboutRef}
-      className={`relative w-full h-screen mx-auto flex justify-center items-center bg-primary rounded-t-3xl`}
+      className="relative w-full h-screen mx-auto flex justify-between items-center bg-primary" 
     >
       <motion.div
-        initial={{ y: 100, opacity: 0 }}
+        initial='hidden'
         animate={controls}
-        transition={{ duration: 0.5 }}
-        className={`max-w-7xl mx-auto flex flex-col justify-center items-start gap-10 px-4 sm:px-0`}
+        variants={fadeIn('right', 'spring', 0.5, 1)}
+        className="w-1/2 h-full bg-primary flex justify-center items-center"
       >
-        <h1 className={`${styles.heroHeadText} text-white`}>
-          <TextDecode text='About' />
+        <Card3DCanvas imageUrl={'https://i.imgur.com/RcAfYhF.jpeg'} />
+      </motion.div>
+      <motion.div
+        initial='hidden'
+        animate={controls}
+        variants={textVariant(0.5)}
+        className=" flex flex-col justify-center items-start px-24 w-1/2 h-full bg-primary" 
+      >
+        <h1 className={`${styles.sectionHeadText} text-white`}>
+          <TextDecode text='About Me' />
         </h1>
-        <p className={`${styles.heroSubText} mt-2 text-white-100`}>
+        <p className={`${styles.sectionSubText} mt-2 text-white-100`}>
           <TextDecode text='I am a software developer based in the United States.' />
         </p>
       </motion.div>
@@ -57,5 +66,4 @@ const About = () => {
   );
 };
 
-
-export default About
+export default About;
