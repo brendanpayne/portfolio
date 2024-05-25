@@ -43,6 +43,63 @@ import {
       title: "Contact",
     },
   ];
+
+  const cards = [
+    {
+      imageUrl: 'https://i.imgur.com/RcAfYhF.jpeg',
+      subtitle: 'Introduction',
+      title: 'About Me',
+      text: `
+        I'm a software developer soon-to-be based in the Greater Boston Area. My expertise lies
+        in full-stack development, with most of my experience being in mobile application development leveraging
+        technologies like Kotlin, Swift, and React Native. I'm passionate about creating innovative solutions
+        to complex problems and I'm always looking to learn new things. Let's innovate and create something
+        amazing together!
+      `
+    },
+    {
+      imageUrl: 'https://i.imgur.com/4hDbTe9.jpeg',
+      subtitle: 'Education',
+      title: 'University of Cincinnati',
+      text: `
+        I graduated with a Bachelor's degree in Information Technology from the University of Cincinnati in 2024.
+        I chose the software development track and took courses in mobile application development, web development,
+        and software engineering. I also minored in Asian Studies and took courses in Japanese language and culture.
+      `
+    }, 
+    {
+      imageUrl: 'https://i.imgur.com/4hDbTe9.jpeg',
+      subtitle: 'Education',
+      title: 'Nanzan University',
+      text: `
+        I studied abroad at Nanzan University in Nagoya, Japan in 2023. I took courses in Japanese language and culture
+        and lived with a host family in Seto, Aichi. During my time in Japan, I traveled to various cities and experienced
+        the rich culture and history of the country. I also made many friends and connections that I still keep in touch with today!
+      `
+    },
+    {
+      imageUrl: 'https://i.imgur.com/4hDbTe9.jpeg',
+      subtitle: 'Hobbies',
+      title: 'What I Do For Fun',
+      text: `
+        Some of my hobbies include photography, cooking, and reading. I enjoy documenting my travels and experiences
+        through photography and sharing them with others. I also love trying new recipes and experimenting with different
+        cuisines. In my free time, I like to read books on technology, history, and philosophy. I'm a lifelong learner
+        and always looking to explore new interests and hobbies.
+      `
+    },
+    {
+      imageUrl: 'https://i.imgur.com/4hDbTe9.jpeg',
+      subtitle: 'Pets',
+      title: 'Meet My Cats!',
+      text: `
+        I have two cats, Peggy and Clairese. They are both tabby cats and are sisters from the same litter. Peggy is the
+        more adventurous of the two and loves to explore new places. Clairese is more reserved and enjoys lounging around
+        the house. They are both very affectionate and will often be on my desk while I'm working. Despite the occasional
+        distraction, they bring me lots of joy.
+      `
+    }
+  ]
   
   const services = [
     {
@@ -284,4 +341,4 @@ import {
     }
   ];
   
-  export { services, technologies, experiences, testimonials, projects, socials };
+  export { cards, services, technologies, experiences, testimonials, projects, socials };

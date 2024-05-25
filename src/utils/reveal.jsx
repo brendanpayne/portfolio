@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
 const randomChar = () => {
-  const chars = 'ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜｦﾝ';
+  const chars = 'ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜｦﾝ'; // 半角カナの方が見やすい
   return chars[Math.floor(Math.random() * chars.length)];
 };
 
@@ -11,10 +11,10 @@ const scrambleText = (text) => {
   return text.split('').map(() => randomChar()).join('');
 };
 
-const TextDecode = ({ text }) => {
+const TextDecode = ({ text, color }) => {
   const [ref, inView] = useInView({
     triggerOnce: true,
-    threshold: 0.1, // Adjust the threshold as needed
+    threshold: 0.2, 
   });
   const [displayedText, setDisplayedText] = useState(scrambleText(text));
   const [revealed, setRevealed] = useState(false);
@@ -42,7 +42,7 @@ const TextDecode = ({ text }) => {
   return (
     <motion.div ref={ref} initial={{ opacity: 0 }} animate={{ opacity: inView ? 1 : 0 }} transition={{ duration: 0.5 }}>
       {displayedText.split('').map((char, i) => (
-        <span key={i} style={{ color: i < iterations ? 'white' : '#915EFF' }}>{char}</span>
+        <span key={i} style={{ color: i < iterations ? color : '#915EFF' }}>{char}</span>
       ))}
     </motion.div>
   );

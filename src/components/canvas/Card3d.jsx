@@ -21,8 +21,8 @@ const Card3D = ({ imageUrl, isMouseOver, isMobile }) => {
         targetRotationX = Math.atan2(y, 10);
       } else {
         const time = clock.getElapsedTime();
-        targetRotationY = 0.1 * Math.sin(time);
-        targetRotationX = 0.1 * Math.sin(time);
+        targetRotationY = 0.05 * Math.sin(time);
+        targetRotationX = 0.05 * Math.cos(time);
       }
 
       groupRef.current.rotation.y = THREE.MathUtils.lerp(groupRef.current.rotation.y, targetRotationY, 0.1);
@@ -93,7 +93,7 @@ const StaticLights = ({isMobile}) => {
     <group>
       <directionalLight
         position={[10, 10, 5]}
-        intensity={1}
+        intensity={2}
         castShadow
         shadow-mapSize-width={1024}
         shadow-mapSize-height={1024}
