@@ -46,7 +46,7 @@ import {
 
   const cards = [
     {
-      imageUrl: 'https://i.imgur.com/RcAfYhF.jpeg',
+      imageUrl: 'src/assets/about/1.png',
       subtitle: 'Introduction',
       title: 'About Me',
       text: `
@@ -58,7 +58,7 @@ import {
       `
     },
     {
-      imageUrl: 'https://i.imgur.com/4hDbTe9.jpeg',
+      imageUrl: 'src/assets/about/2.png',
       subtitle: 'Education',
       title: 'University of Cincinnati',
       text: `
@@ -68,7 +68,7 @@ import {
       `
     }, 
     {
-      imageUrl: 'https://i.imgur.com/4hDbTe9.jpeg',
+      imageUrl: 'src/assets/about/3.png',
       subtitle: 'Education',
       title: 'Nanzan University',
       text: `
@@ -78,7 +78,7 @@ import {
       `
     },
     {
-      imageUrl: 'https://i.imgur.com/4hDbTe9.jpeg',
+      imageUrl: 'src/assets/about/4.png',
       subtitle: 'Hobbies',
       title: 'What I Do For Fun',
       text: `
@@ -89,7 +89,7 @@ import {
       `
     },
     {
-      imageUrl: 'https://i.imgur.com/4hDbTe9.jpeg',
+      imageUrl: 'src/assets/about/5.png',
       subtitle: 'Pets',
       title: 'Meet My Cats!',
       text: `
