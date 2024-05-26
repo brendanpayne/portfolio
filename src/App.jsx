@@ -10,11 +10,11 @@ const App = () => {
         <div className="sticky top-0 z-1">
           <Hero />
         </div>
-        <div className="scroll-container" style={{ scrollSnapType: 'y mandatory', scrollBehavior: 'smooth' }}>
-          <div className="relative z-2" style={{ scrollSnapAlign: 'start' }}>
+        <div className="scroll-container">
+          <div className="relative z-0">
             <About />
+            <Experience />
           </div>
-          <Experience />
           <Tech />
           <Works />
           <Feedbacks />
