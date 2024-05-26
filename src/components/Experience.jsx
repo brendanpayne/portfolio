@@ -5,6 +5,7 @@ import { styles } from "../style";
 import { textVariant, fadeIn } from '../utils/motion';
 import { experiences } from '../constants'
 import { Tilt } from 'react-tilt';
+import { SectionWrapper } from '../hoc/index.js';
 
 const ExperienceCard = ({ experience, index, total }) => {
   return (
@@ -46,45 +47,10 @@ const ExperienceCard = ({ experience, index, total }) => {
 };
 
 const Experience = () => {
-  const [scrollY, setScrollY] = useState(0);
-  const [reveal, setReveal] = useState(false);
-  const controls = useAnimation();
-  const workRef = useRef(null);
-
-  const handleScroll = () => {
-    setScrollY(window.scrollY);
-  };
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
-  useEffect(() => {
-    const workSection = workRef.current;
-    if (workSection) {
-      const workTop = workSection.getBoundingClientRect().top + window.scrollY - 200;
-      if (scrollY >= workTop && !reveal) {
-        controls.start('show');
-        setReveal(true);
-      } else if (scrollY < workTop && !reveal) {
-        controls.start('hidden');
-      }
-    }
-  }, [scrollY, controls, reveal]);
-
   return (
-    <section
-      id='work'
-      ref={workRef}
-      className="relative w-full min-h-screen flex flex-col items-center bg-primary"
-    >
+    <div className="relative w-full min-h-screen flex flex-col items-center bg-primary">
       <div className="flex flex-col items-center">
         <motion.div
-          initial='hidden'
-          animate={controls}
           variants={textVariant()}
           className="w-full flex flex-col justify-center items-center"
         >
@@ -104,8 +70,8 @@ const Experience = () => {
           </div>
         </motion.div>
       </div>
-    </section>
+    </div>
   );
 };
 
-export default Experience;
+export default SectionWrapper(Experience, "work");
