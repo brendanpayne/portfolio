@@ -11,13 +11,13 @@ const App = () => {
           <Hero />
         </div>
         <div className="scroll-container">
-          <div className="relative z-0">
+          <div className="relative z-2">
             <About />
             <Experience />
+            <Tech />
+            <Works />
+            <Feedbacks />
           </div>
-          <Tech />
-          <Works />
-          <Feedbacks />
         </div>
         <div className="relative z-0">
           <Contact />

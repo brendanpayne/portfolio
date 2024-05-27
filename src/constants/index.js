@@ -1,8 +1,10 @@
+import { color } from "framer-motion";
 import {
     mobile,
     backend,
     creator,
     web,
+
     javascript,
     typescript,
     html,
@@ -15,16 +17,20 @@ import {
     git,
     figma,
     docker,
+
     ktd,
+
     carrent,
     jobit,
     tripguide,
     threejs,
+    
     github,
     linkedin,
     twitter,
     email,
   } from "../assets";
+import { c } from "maath/dist/index-0332b2ed.esm";
   
   export const navLinks = [
     {
@@ -121,54 +127,67 @@ import {
     {
       name: "HTML 5",
       icon: html,
+      color: "#f06529",
     },
     {
       name: "CSS 3",
       icon: css,
+      color: "#2965f1",
     },
     {
       name: "JavaScript",
       icon: javascript,
+      color: "#f0db4f",
     },
     {
       name: "TypeScript",
       icon: typescript,
+      color: "#007acc",
     },
     {
       name: "React JS",
       icon: reactjs,
+      color: "#61dbfb",
     },
     {
       name: "Redux Toolkit",
       icon: redux,
+      color: "#764abc",
     },
     {
       name: "Tailwind CSS",
       icon: tailwind,
+      color: "#06b6d4",
     },
     {
       name: "Node JS",
       icon: nodejs,
+      color: "#68a063",
     },
     {
       name: "MongoDB",
       icon: mongodb,
+      color: "#4db33d",
     },
     {
       name: "Three JS",
       icon: threejs,
+      color: "#f0db4f",
     },
     {
       name: "git",
       icon: git,
+      color: "#f34f29",
     },
     {
       name: "figma",
       icon: figma,
+      color: "#f24e1e",
     },
     {
       name: "docker",
       icon: docker,
+      color: "#0db7ed",
     },
   ];
   
