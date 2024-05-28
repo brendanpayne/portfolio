@@ -10,14 +10,12 @@ function Ball({ icon, color, position }) {
   const texture = useLoader(THREE.TextureLoader, icon)
   const spriteRef = useRef()
 
-  // Constrain the initial position to z = 0
   const initialPosition = [position[0], position[1], 0]
 
   useFrame((state, delta) => {
     delta = Math.min(delta, 0.1)
     const currentPosition = api.current.translation()
     
-    // Constrain the movement to the x and y axes only
     currentPosition.z = 0
     api.current.setTranslation(currentPosition, true)
 
@@ -68,7 +66,7 @@ const BallCanvas = () => {
       <ambientLight intensity={1} />
       <Physics gravity={[0, 0, 0]}>
         <MarchingCubes resolution={80} maxPolyCount={20000} enableUvs={false} enableColors>
-        <meshStandardMaterial vertexColors thickness={0.3} roughness={0.3} />
+        <meshStandardMaterial vertexColors thickness={0.3} roughness={0.25} />
           {technologies.map((tech, index) => (
             <Ball key={index} icon={tech.icon} color={tech.color} position={[Math.random() - 0.5, Math.random() - 0.5, 0]} />
           ))}

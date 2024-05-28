@@ -1,36 +1,40 @@
-import { color } from "framer-motion";
 import {
     mobile,
     backend,
     creator,
     web,
 
-    javascript,
-    typescript,
-    html,
+    android,
+    azure,
+    cplusplus,
     css,
-    reactjs,
-    redux,
-    tailwind,
-    nodejs,
-    mongodb,
-    git,
-    figma,
     docker,
+    figma,
+    firebase,
+    git,
+    html,
+    java,
+    javascript,
+    kotlin,
+    nodejs,
+    python,
+    reactjs,
+    tailwind,
+    threejs,
+    typescript,
+    unity,
 
     ktd,
 
     carrent,
     jobit,
     tripguide,
-    threejs,
     
     github,
     linkedin,
     twitter,
     email,
   } from "../assets";
-import { c } from "maath/dist/index-0332b2ed.esm";
   
   export const navLinks = [
     {
@@ -125,19 +129,89 @@ import { c } from "maath/dist/index-0332b2ed.esm";
   
   const technologies = [
     {
-      name: "HTML 5",
-      icon: html,
-      color: "#f06529",
+      name: "Android",
+      icon: android,
+      color: "#3ddc84",
     },
     {
-      name: "CSS 3",
+      name: "Azure",
+      icon: azure,
+      color: "#0078d4",
+    },
+    {
+      name: "C++",
+      icon: cplusplus,
+      color: "#00599c",
+    },
+    {
+      name: "CSS",
       icon: css,
-      color: "#2965f1",
+      color: "#264de4",
+    },
+    {
+      name: "Docker",
+      icon: docker,
+      color: "#2496ed",
+    },
+    {
+      name: "Figma",
+      icon: figma,
+      color: "#f24e1e",
+    },
+    {
+      name: "Firebase",
+      icon: firebase,
+      color: "#ffca28",
+    },
+    {
+      name: "Git",
+      icon: git,
+      color: "#f34f29",
+    },
+    {
+      name: "HTML",
+      icon: html,
+      color: "#e34f26",
+    },
+    {
+      name: "Java",
+      icon: java,
+      color: "#f89820",
     },
     {
       name: "JavaScript",
       icon: javascript,
-      color: "#f0db4f",
+      color: "#f7df1e",
+    },
+    {
+      name: "Kotlin",
+      icon: kotlin,
+      color: "#0095d5",
+    },
+    {
+      name: "Node.js",
+      icon: nodejs,
+      color: "#339933",
+    },
+    {
+      name: "Python",
+      icon: python,
+      color: "#3776ab",
+    },
+    {
+      name: "React.js",
+      icon: reactjs,
+      color: "#61dbfb",
+    },
+    {
+      name: "Tailwind CSS",
+      icon: tailwind,
+      color: "#38b2ac",
+    },
+    {
+      name: "Three.js",
+      icon: threejs,
+      color: "#f9a03c",
     },
     {
       name: "TypeScript",
@@ -145,49 +219,9 @@ import { c } from "maath/dist/index-0332b2ed.esm";
       color: "#007acc",
     },
     {
-      name: "React JS",
-      icon: reactjs,
-      color: "#61dbfb",
-    },
-    {
-      name: "Redux Toolkit",
-      icon: redux,
-      color: "#764abc",
-    },
-    {
-      name: "Tailwind CSS",
-      icon: tailwind,
-      color: "#06b6d4",
-    },
-    {
-      name: "Node JS",
-      icon: nodejs,
-      color: "#68a063",
-    },
-    {
-      name: "MongoDB",
-      icon: mongodb,
-      color: "#4db33d",
-    },
-    {
-      name: "Three JS",
-      icon: threejs,
-      color: "#f0db4f",
-    },
-    {
-      name: "git",
-      icon: git,
-      color: "#f34f29",
-    },
-    {
-      name: "figma",
-      icon: figma,
-      color: "#f24e1e",
-    },
-    {
-      name: "docker",
-      icon: docker,
-      color: "#0db7ed",
+      name: "Unity",
+      icon: unity,
+      color: "#AAAAAA",
     },
   ];
   
@@ -217,33 +251,6 @@ import { c } from "maath/dist/index-0332b2ed.esm";
         `Utilized both Android Studio and IntelliJ IDEA IDEs to engineer solutions using Kotlin, Jetpack Compose, XML, and Java`,
         `Gained familiarity with Agile development, Scrum methodology, test driven design, continuous integration/continuous delivery (CI/CD), and full-stack engineering.`,
       ],
-    },
-  ];
-  
-  const testimonials = [
-    {
-      testimonial:
-        "I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.",
-      name: "Sara Lee",
-      designation: "CFO",
-      company: "Acme Co",
-      image: "https://randomuser.me/api/portraits/women/4.jpg",
-    },
-    {
-      testimonial:
-        "I've never met a web developer who truly cares about their clients' success like Rick does.",
-      name: "Chris Brown",
-      designation: "COO",
-      company: "DEF Corp",
-      image: "https://randomuser.me/api/portraits/men/5.jpg",
-    },
-    {
-      testimonial:
-        "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
-      name: "Lisa Wang",
-      designation: "CTO",
-      company: "456 Enterprises",
-      image: "https://randomuser.me/api/portraits/women/6.jpg",
     },
   ];
   
@@ -331,4 +338,4 @@ import { c } from "maath/dist/index-0332b2ed.esm";
     }
   ];
   
-  export { cards, services, technologies, experiences, testimonials, projects, socials };
+  export { cards, services, technologies, experiences, projects, socials };
