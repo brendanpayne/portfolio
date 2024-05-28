@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { Canvas, useLoader, useFrame, useThree } from '@react-three/fiber';
-import { RoundedBox } from '@react-three/drei';
+import { RoundedBox, Environment } from '@react-three/drei';
 import { TextureLoader, ShaderMaterial } from 'three';
 import * as THREE from 'three';
 
@@ -35,13 +35,18 @@ const Card3D = ({ imageUrl, isMouseOver, isMobile }) => {
   texture.center.set(0.1, 0);
 
   const materials = [
-    new THREE.MeshStandardMaterial({ map: texture, roughness: 0.8, metalness: 0.2 }),
-    new THREE.MeshStandardMaterial({ color: '#915EFF', roughness: 0.8, metalness: 0.2 }),
+    new THREE.MeshStandardMaterial({ 
+      map: texture, 
+      roughness: 0.8, 
+      metalness: 1,
+      side: THREE.FrontSide,
+    }),
+    new THREE.MeshStandardMaterial({ color: '#915EFF', roughness: 0.6, metalness: 0.8 }),
   ];
 
   return (
     <group ref={groupRef} position={[0, 0.5, 0]} castShadow>
-      <ambientLight intensity={1} />
+      <ambientLight intensity={1} color={'#DDD'} />
       {/* 3D Card */}
       <mesh castShadow receiveShadow>
         <RoundedBox args={[3, 4, 0.2]} radius={0.1} smoothness={4} scale={isMobile ? 0.8 : 1}>
@@ -91,21 +96,6 @@ const StaticLights = ({isMobile}) => {
 
   return (
     <group>
-      <directionalLight
-        position={[10, 10, 5]}
-        intensity={1}
-        castShadow
-        shadow-mapSize-width={1024}
-        shadow-mapSize-height={1024}
-        shadow-camera-far={50}
-        shadow-camera-left={-10}
-        shadow-camera-right={10}
-        shadow-camera-top={10}
-        shadow-camera-bottom={-10}
-      />
-      <pointLight position={[0, 5, 5]} intensity={1} />
-      <spotLight position={[5, 5, 10]} angle={0.2} intensity={2} castShadow />
-      {/* Circular Shadow */}
       <mesh receiveShadow position={isMobile? [0, -1.3, 0] : [0, -1.7, 0]} rotation={[-Math.PI / 2, 0, 0]}>
         <circleGeometry attach="geometry" args={isMobile ? [1.6, 32] : [2, 64]} />
         <primitive object={shadowMaterial} attach="material" />
@@ -141,6 +131,7 @@ const Card3DCanvas = ({ imageUrl }) => {
       >
         <StaticLights isMobile={isMobile} />
         <Scene imageUrl={imageUrl} isMouseOver={isMouseOver} isMobile={isMobile}/>
+        <Environment files="https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/kloofendal_48d_partly_cloudy_puresky_1k.hdr"/>
       </Canvas>
     </div>
   );
