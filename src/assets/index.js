@@ -1,8 +1,4 @@
 import logo from "./logo.svg";
-import backend from "./backend.png";
-import creator from "./creator.png";
-import mobile from "./mobile.png";
-import web from "./web.png";
 import menu from "./menu.svg";
 import close from "./close.svg";
 
@@ -28,10 +24,6 @@ import unity from "./tech/unity.svg";
 
 import ktd from "./company/ktd.png";
 
-import carrent from "./carrent.png";
-import jobit from "./jobit.png";
-import tripguide from "./tripguide.png";
-
 import github from "./github.png";
 import linkedin from "./linkedin.png";
 import twitter from "./twitter.png";
@@ -41,10 +33,6 @@ export {
   logo,
   menu,
   close,
-  mobile,
-  backend,
-  creator,
-  web,
   android,
   azure,
   cplusplus,
@@ -65,9 +53,6 @@ export {
   typescript,
   unity,
   ktd,
-  carrent,
-  jobit,
-  tripguide,
   github,
   linkedin,
   twitter,

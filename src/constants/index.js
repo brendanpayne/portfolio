@@ -1,8 +1,4 @@
 import {
-    mobile,
-    backend,
-    creator,
-    web,
 
     android,
     azure,
@@ -26,10 +22,6 @@ import {
 
     ktd,
 
-    carrent,
-    jobit,
-    tripguide,
-    
     github,
     linkedin,
     twitter,
@@ -107,25 +99,6 @@ import {
       `
     }
   ]
-  
-  const services = [
-    {
-      title: "Web Developer",
-      icon: web,
-    },
-    {
-      title: "React Native Developer",
-      icon: mobile,
-    },
-    {
-      title: "Backend Developer",
-      icon: backend,
-    },
-    {
-      title: "Content Creator",
-      icon: creator,
-    },
-  ];
   
   const technologies = [
     {
@@ -253,7 +226,7 @@ import {
       ],
     },
   ];
-  
+  /*
   const projects = [
     {
       name: "Car Rent",
@@ -319,6 +292,7 @@ import {
       source_code_link: "https://github.com/",
     },
   ];
+  */
 
   const socials = [
     {
@@ -338,4 +312,4 @@ import {
     }
   ];
   
-  export { cards, services, technologies, experiences, projects, socials };
+  export { cards, technologies, experiences, socials };

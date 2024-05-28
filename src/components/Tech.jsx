@@ -30,7 +30,7 @@ const Tech = () => {
       {!showList ? (
         <motion.div
           variants={fadeIn('down', 'spring', 0.5, 2)}
-          className="relative z-30 flex flex-col justify-center items-center px-24 md:px-8 w-full md:w-1/2 pt-8 max-h-3xl max-w-3xl pointer-events-none bg-opacity-75 bg-tertiary rounded-xl p-6 backdrop-blur-[10px]"
+          className="relative z-30 flex flex-col shadow-card justify-center items-center px-24 md:px-8 w-full md:w-1/2 pt-8 max-h-3xl max-w-3xl pointer-events-none bg-opacity-75 bg-tertiary rounded-xl p-6 backdrop-blur-[10px]"
         >
           <p className={`${styles.sectionSubText} text-secondary pointer-events-none`}>Technologies</p>
           <h2 className={`${styles.sectionHeadText} text-white pointer-events-none`}>
@@ -46,7 +46,7 @@ const Tech = () => {
       ) : (
         <motion.div
           variants={fadeIn('down', 'spring', 0.5, 2)}
-          className="relative z-30 flex flex-col justify-center items-center px-24 md:px-8 w-full md:w-1/2 pt-8 max-h-3xl max-w-3xl pointer-events-auto bg-opacity-75 bg-tertiary rounded-xl p-6 backdrop-blur-[10px]"
+          className="relative z-30 flex flex-col justify-center shadow-card items-center px-24 md:px-8 w-full md:w-1/2 pt-8 max-h-3xl max-w-3xl pointer-events-auto bg-opacity-75 bg-tertiary rounded-xl p-6 backdrop-blur-[10px]"
         >
           <button
             onClick={handleCloseClick}

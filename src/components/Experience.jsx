@@ -16,7 +16,7 @@ const ExperienceCard = ({ experience, index, total }) => {
           max: 15,
           speed: 500,
         }}
-        className="flex flex-col items-center bg-tertiary p-4 rounded-2xl shadow-lg"
+        className="flex flex-col items-center bg-tertiary p-4 rounded-2xl shadow-card"
       >
         <div className="flex flex-row justify-between items-center w-[80%]">
           <div className={`w-16 h-16 rounded-full flex items-center justify-center p-3`} style={{ backgroundColor: experience.iconBg }}>
