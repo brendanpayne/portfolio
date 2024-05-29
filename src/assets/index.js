@@ -24,6 +24,11 @@ import unity from "./tech/unity.svg";
 
 import ktd from "./company/ktd.png";
 
+import protify from "./works/protify.png";
+import pentango from "./works/pentango.png";
+import portfolio from "./works/portfolio.png";
+import neato from "./works/neato.png";
+
 import github from "./github.png";
 import linkedin from "./linkedin.png";
 import twitter from "./twitter.png";
@@ -53,6 +58,10 @@ export {
   typescript,
   unity,
   ktd,
+  protify,
+  pentango,
+  portfolio,
+  neato,
   github,
   linkedin,
   twitter,

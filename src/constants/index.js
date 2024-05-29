@@ -22,6 +22,11 @@ import {
 
     ktd,
 
+    protify,
+    pentango,
+    portfolio,
+    neato,
+
     github,
     linkedin,
     twitter,
@@ -226,73 +231,101 @@ import {
       ],
     },
   ];
-  /*
+
   const projects = [
     {
-      name: "Car Rent",
+      name: "Protify",
+      date: "August 2023 - April 2024",
       description:
-        "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+        `AI-powered calendar application that helps users manage their time more effectively by analyzing their schedules and providing suggestions for optimal time management.`,
       tags: [
         {
-          name: "react",
+          name: "kotlin",
           color: "blue-text-gradient",
         },
         {
-          name: "mongodb",
+          name: "android",
           color: "green-text-gradient",
         },
         {
-          name: "tailwind",
+          name: "firebase",
           color: "pink-text-gradient",
         },
+        {
+          name: "gpt-4o",
+          color: "purple-text-gradient",
+        }
       ],
-      image: carrent,
-      source_code_link: "https://github.com/",
+      image: protify,
+      source_code_link: "https://github.com/brendanpayne/protifyapp",
     },
     {
-      name: "Job IT",
+      name: "Pentango",
+      date: "January 2022 - April 2022",
       description:
-        "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+        `Pentagon-shaped word game that challenges players to create words using a set of letters and earn points based on the length and complexity of the word.`,
       tags: [
         {
-          name: "react",
-          color: "blue-text-gradient",
+          name: "javascript",
+          color: "yellow-text-gradient",
         },
         {
-          name: "restapi",
-          color: "green-text-gradient",
-        },
-        {
-          name: "scss",
-          color: "pink-text-gradient",
-        },
-      ],
-      image: jobit,
-      source_code_link: "https://github.com/",
-    },
-    {
-      name: "Trip Guide",
-      description:
-        "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
-      tags: [
-        {
-          name: "nextjs",
-          color: "blue-text-gradient",
-        },
-        {
-          name: "supabase",
-          color: "green-text-gradient",
+          name: "html",
+          color: "orange-text-gradient",
         },
         {
           name: "css",
-          color: "pink-text-gradient",
-        },
+          color: "blue-text-gradient",
+        }
       ],
-      image: tripguide,
-      source_code_link: "https://github.com/",
+      image: pentango,
+      source_code_link: "https://github.com/brendanpayne/pentango",
     },
-  ];
-  */
+    {
+      name: "Portfolio Website",
+      date: "May 2024",
+      description:
+        `Personal portfolio website showcasing my work, skills, and experiences. Looks familiar, doesn't it?`,
+      tags: [
+        {
+          name: "react",
+          color: "purple-text-gradient",
+        },
+        {
+          name: "tailwind",
+          color: "blue-text-gradient",
+        },
+        {
+          name: "three.js",
+          color: "yellow-text-gradient",
+        }
+      ],
+      image: portfolio,
+      source_code_link: "https://github.com/brendanpayne/portfolio",
+    },
+    {
+      name: "Neato DS4 Interface",
+      date: "November 2020",
+      description:
+        `Python script allowing a Neato Botvac D4 robot vacuum to be controlled with a DualShock 4 controller. Uses PyGame for controller input and Neato serial commands for vacuum control.`,
+      tags: [
+        {
+          name: "python",
+          color: "yellow-text-gradient",
+        },
+        {
+          name: "pygame",
+          color: "blue-text-gradient",
+        },
+        {
+          name: "raspberry-pi",
+          color: "pink-text-gradient",
+        }
+      ],
+      image: neato,
+      source_code_link: "https://github.com/brendanpayne/neato-ds4"
+    },
+  ]
 
   const socials = [
     {
@@ -312,4 +345,4 @@ import {
     }
   ];
   
-  export { cards, technologies, experiences, socials };
+  export { cards, technologies, experiences, projects, socials };
