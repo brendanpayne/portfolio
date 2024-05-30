@@ -45,71 +45,6 @@ const ProjectCard = ({ project, index, total }) => {
   );
 }
 
-const ProjectSlideShow = () => {
-  const controls = useAnimation();
-  const [index, setIndex] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const itemsPerPage = 3;
-
-  const nextSlide = async () => {
-    if (isAnimating) return;
-    setIsAnimating(true);
-    await controls.start({ x: -100, opacity: 0 });
-    setIndex((prev) => (prev + itemsPerPage) % projects.length);
-    await controls.start({ x: 0, opacity: 1 });
-    setIsAnimating(false);
-  };
-
-  const prevSlide = async () => {
-    if (isAnimating) return;
-    setIsAnimating(true);
-    await controls.start({ x: 100, opacity: 0 });
-    setIndex((prev) => (prev - itemsPerPage + projects.length) % projects.length);
-    await controls.start({ x: 0, opacity: 1 });
-    setIsAnimating(false);
-  };
-
-  useEffect(() => {
-    controls.start({ x: 0, opacity: 1 });
-  }, []);
-
-  const getVisibleProjects = () => {
-    let visibleProjects = [];
-    for (let i = 0; i < itemsPerPage; i++) {
-      visibleProjects.push(projects[(index + i) % projects.length]);
-    }
-    return visibleProjects;
-  };
-
-  return (
-    <div className="relative flex flex-row justify-center items-center w-full mt-10">
-      <button onClick={prevSlide} className="text-white text-[32px] font-medium rounded-full w-16 h-16 flex justify-center items-center">
-        &lt;
-      </button>
-      <motion.div
-        variants={fadeIn('up', 'easeInOut', 0, 0.75)}
-        initial={{ x: 100, opacity: 0 }}
-        animate={controls}
-        className="flex flex-row justify-between items-center w-full"
-      >
-        {getVisibleProjects().map((project, idx) => (
-          <motion.div
-            key={idx}
-            variants={fadeIn('up', 'easeInOut', idx * 0.5, 0.75)}
-            className="flex flex-col justify-center items-center"
-          >
-            <ProjectCard key={idx} project={project} index={(index + idx) % projects.length} total={projects.length} />
-          </motion.div>
-        ))}
-      </motion.div>
-      <button onClick={nextSlide} className="text-white text-[32px] font-medium rounded-full w-16 h-16 flex justify-center items-center">
-        &gt;
-      </button>
-    </div>
-  );
-};
-
-
 const Works = () => {
   return (
     <div className="relative w-full min-h-screen flex flex-col items-center bg-primary pt-32">
@@ -124,7 +59,9 @@ const Works = () => {
           </h2>
         </motion.div>
         <div className="flex flex-row items-center w-full mt-8">
-          <ProjectSlideShow />
+          {projects.map((project, index) => (
+            <ProjectCard key={index} project={project} index={index} total={projects.length} />
+          ))}
         </div>
       </div>
 
