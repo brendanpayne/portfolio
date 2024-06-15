@@ -6,6 +6,7 @@ import { styles } from "../style";
 import { SectionWrapper } from '../hoc';
 import { fadeIn, slideIn } from '../utils/motion';
 import TextDecoder from '../utils/reveal';
+import { WaveBallCanvas } from './canvas';
 
 const Contact = () => {
   const formRef = useRef();
@@ -38,11 +39,12 @@ const Contact = () => {
 
   return (
     <div
-      className={`xl:mt-12 flex xl:flex-row flex-col-reverse xl:ps-[10%] ps-[60px] gap-10 bg-primary overflow-hidden`}
+      className={`bg-primary overflow-hidden h-full`}
     >
+      <div className={`xl:mt-12 flex xl:flex-row flex-col-reverse xl:ps-[10%] ps-[60px] gap-10 md:max-h-3/4 max-h-[800px]`}>
       <motion.div
         variants={fadeIn("right", "tween", 0.2, 1)}
-        className='flex-[0.75] bg-black-100 p-8 rounded-2xl shadow-card xl:h-auto md:h-[550px] h-[350px] flex flex-col gap-8 justify-center'
+        className='flex-[0.75] bg-black-100 p-8 rounded-2xl shadow-card xl:h-auto flex flex-col gap-8 justify-center'
       >
         <p className={styles.sectionSubText}>Contact</p>
         <h3 className={styles.sectionHeadText}>
@@ -97,10 +99,11 @@ const Contact = () => {
 
       <motion.div
         variants={slideIn("right", "tween", 0.2, 1)}
-        className='xl:flex-1 xl:h-auto md:h-[550px] h-[350px]'
+        className='xl:flex-1 xl:h-auto md:h-[550px] h-[350px] md:w-[550px] w-[350px]'
       >
-        {/* something cool here */}
+        <WaveBallCanvas />
       </motion.div>
+      </div>
     </div>
   );
 }
