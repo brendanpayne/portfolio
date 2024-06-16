@@ -11,7 +11,7 @@ const scrambleText = (text) => {
   return text.split('').map(() => randomChar()).join('');
 };
 
-const TextDecode = ({ text, color }) => {
+const TextDecode = ({ text, color, speed = 2 }) => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.2, 
@@ -29,7 +29,7 @@ const TextDecode = ({ text, color }) => {
           .map((char, i) => (iterations >= i ? text[i] : randomChar()))
           .join('');
         setDisplayedText(currentText);
-        setIterations(iterations + 1 * (text.length / 20)); 
+        setIterations(iterations + speed * (text.length / 20)); 
         if (iterations > text.length) {
           clearInterval(interval);
           setRevealed(true);

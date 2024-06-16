@@ -104,7 +104,7 @@ const StaticLights = ({isMobile}) => {
   );
 };
 
-const Card3DCanvas = ({ imageUrl }) => {
+const Card3DCanvas = ({ imageUrl, className }) => {
   const [isMouseOver, setIsMouseOver] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -122,12 +122,11 @@ const Card3DCanvas = ({ imageUrl }) => {
     <div
       onMouseEnter={() => setIsMouseOver(true)}
       onMouseLeave={() => setIsMouseOver(false)}
-      style={{ height: '100%', width: '100%' }}
+      className={className}
     >
       <Canvas
         shadows
         camera={{ position: [-2, 0, 5], fov: 70 }}
-        style={{ height: '100%', width: '100%' }}
       >
         <StaticLights isMobile={isMobile} />
         <Scene imageUrl={imageUrl} isMouseOver={isMouseOver} isMobile={isMobile}/>
