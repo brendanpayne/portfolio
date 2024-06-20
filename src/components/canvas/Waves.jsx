@@ -1,14 +1,21 @@
 import React, { useRef, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
+import useScrollPosition from '../../utils/scroll';
 
 const WavesCanvas = () => {
+  const { scrollPosition, viewportHeight } = useScrollPosition();
+  const opacity = Math.max(1 - scrollPosition / viewportHeight, 0);
+
+
     return (
+      <div className="w-full h-full transition-opacity" style={{ opacity }}>
         <Canvas camera={{ position: [10, 25, 10] }}>
             <ambientLight intensity={0.5} />
             <pointLight position={[10, 10, 10]} />
             <Waves />
         </Canvas>
+      </div>
     )
 }
 

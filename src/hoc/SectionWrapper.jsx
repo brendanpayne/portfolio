@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+
+import { styles } from "../style";
 import { staggerContainer } from "../utils/motion";
 
 const StarWrapper = (Component, idName) =>
@@ -9,7 +11,7 @@ const StarWrapper = (Component, idName) =>
         initial='hidden'
         whileInView='show'
         viewport={{ once: true, amount: 0.25 }}
-        className='relative w-full h-screen mx-auto'
+        className={`mx-auto overflow-x-hidden relative z-0 bg-primary`}
       >
         <span className='hash-span' id={idName}>
           &nbsp;
