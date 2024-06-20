@@ -39,7 +39,7 @@ const Contact = () => {
 
   return (
     <div
-      className={`bg-primary overflow-hidden h-full`}
+      className={`bg-primary overflow-hidden h-full xl:py-32 py-0`}
     >
       <div className={`xl:mt-12 flex xl:flex-row flex-col-reverse xl:ps-[10%] ps-[60px] gap-10 md:max-h-3/4 max-h-[800px]`}>
       <motion.div
@@ -84,7 +84,7 @@ const Contact = () => {
               value={form.message}
               onChange={handleChange}
               placeholder='What you want to say?'
-              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
+              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium resize-none'
             />
           </label>
 
