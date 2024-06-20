@@ -1,9 +1,9 @@
 {
+  "homepage": "https://brendanpayne.github.io/portfolio",
   "name": "portfolio",
   "private": true,
   "version": "0.1.0",
   "description": "My personal portfolio",
-  "homepage": "https://brendanpayne.github.io/portfolio",
   "type": "module",
   "scripts": {
     "dev": "vite",

@@ -29,8 +29,14 @@ import {
 
     github,
     linkedin,
-    twitter,
+    //twitter,
     email,
+
+    about_1,
+    about_2,
+    about_3,
+    about_4,
+    about_5,
   } from "../assets";
   
   export const navLinks = [
@@ -50,7 +56,7 @@ import {
 
   const cards = [
     {
-      imageUrl: 'src/assets/about/1.png',
+      imageUrl: about_1,
       subtitle: 'Introduction',
       title: 'About Me',
       text: `
@@ -62,7 +68,7 @@ import {
       `
     },
     {
-      imageUrl: 'src/assets/about/2.png',
+      imageUrl: about_2,
       subtitle: 'Education',
       title: 'University of Cincinnati',
       text: `
@@ -72,7 +78,7 @@ import {
       `
     }, 
     {
-      imageUrl: 'src/assets/about/3.png',
+      imageUrl: about_3,
       subtitle: 'Education',
       title: 'Nanzan University',
       text: `
@@ -82,7 +88,7 @@ import {
       `
     },
     {
-      imageUrl: 'src/assets/about/4.png',
+      imageUrl: about_4,
       subtitle: 'Hobbies',
       title: 'What I Do For Fun',
       text: `
@@ -93,7 +99,7 @@ import {
       `
     },
     {
-      imageUrl: 'src/assets/about/5.png',
+      imageUrl: about_5,
       subtitle: 'Pets',
       title: 'Meet My Cats!',
       text: `

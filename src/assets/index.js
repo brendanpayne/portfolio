@@ -34,6 +34,12 @@ import linkedin from "./linkedin.png";
 import twitter from "./twitter.png";
 import email from "./email.png";
 
+import about_1 from "./about/1.png";
+import about_2 from "./about/2.png";
+import about_3 from "./about/3.png";
+import about_4 from "./about/4.png";
+import about_5 from "./about/5.png";
+
 export {
   logo,
   menu,
@@ -66,4 +72,9 @@ export {
   linkedin,
   twitter,
   email,
+  about_1,
+  about_2,
+  about_3,
+  about_4,
+  about_5,
 };
