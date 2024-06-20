@@ -19,22 +19,50 @@ const Contact = () => {
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    const { target } = e;
+    const { name, value } = target;
+
+    setForm({
+      ...form,
+      [name]: value,
+    });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    emailjs.sendForm("service_7r0wq4o", "template_0v2wv3k", formRef.current, "user_0O0g4t6qQ8p6q7v9k0XZd")
-      .then((result) => {
-        console.log(result.text);
-        setForm({
-          name: "",
-          email: "",
-          message: "",
-        });
-      }, (error) => {
-        console.log(error.text);
-      });
+    setLoading(true);
+
+    emailjs
+      .send(
+        import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+        {
+          from_name: form.name,
+          to_name: import.meta.env.VITE_APP_EMAILJS_RECEIVER_NAME,
+          from_email: form.email,
+          to_email: import.meta.env.VITE_APP_EMAILJS_RECEIVER_EMAIL,
+          message: form.message,
+        },
+        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+      )
+      .then(
+        () => {
+          setLoading(false);
+          alert("Message sent successfully!");
+
+          setForm({
+            name: "",
+            email: "",
+            message: "",
+          });
+        },
+        (error) => {
+          setLoading(false);
+          console.error(error);
+
+          alert("Failed to send message. Please try again later.");
+        }
+      );
   };
 
   return (
@@ -83,7 +111,7 @@ const Contact = () => {
               name='message'
               value={form.message}
               onChange={handleChange}
-              placeholder='What you want to say?'
+              placeholder='Type your message here...'
               className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium resize-none'
             />
           </label>
