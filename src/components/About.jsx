@@ -29,12 +29,8 @@ const About = () => {
         </motion.div>
         <div className="flex flex-row w-full h-full justify-center items-center xl:max-w-3xl xl:ps-0 ps-24">
           {currentCard > 0 && (
-            <a
-              href='#about'
-              onClick={(e) => {
-                e.preventDefault();
-                handlePreviousClick();
-              }}
+            <button
+              onClick={handlePreviousClick}
               className="text-white text-[32px] font-medium rounded-full w-16 h-16 flex justify-center items-center"
             >
               <motion.p
@@ -49,7 +45,7 @@ const About = () => {
               >
                 &lt;
               </motion.p>
-            </a>
+            </button>
           )}
           <motion.div
             variants={textVariant()}
@@ -67,12 +63,8 @@ const About = () => {
             </p>
           </motion.div>
           {currentCard < cards.length - 1 && (
-            <a
-              href='#about'
-              onClick={(e) => {
-                e.preventDefault();
-                handleLearnMoreClick();
-              }}
+            <button
+              onClick={handleLearnMoreClick}
               className="text-white text-[32px] font-medium rounded-full w-16 h-16 flex justify-center items-center"
             >
               <motion.p
@@ -87,7 +79,7 @@ const About = () => {
               >
                 &gt;
               </motion.p>
-            </a>
+            </button>
           )}
         </div>
       </div>

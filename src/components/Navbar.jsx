@@ -1,12 +1,27 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { styles } from '../style';
 import { navLinks, socials } from '../constants';
-import { logo, menu, close } from '../assets';
+import { logo } from '../assets';
 
 const Navbar = () => {
   const [active, setActive] = useState('');
-  const [toggle, setToggle] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      if (scrollTop > 100) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <nav className="fixed left-0 top-0 min-h-screen w-16 bg-primary text-gray-400 flex flex-col items-center py-8 space-y-4 z-50">
@@ -23,22 +38,19 @@ const Navbar = () => {
       </div>
       <div className='flex flex-1 flex-col justify-between'>
         <ul className='list-none flex flex-col items-center space-y-[50px]'>
-          {navLinks.map((link) => (
-            <li key={link.id} className="transform rotate-90">
-              <Link
-                to={`#${link.id}`}
+          {navLinks.map((nav) => (
+            <li key={nav.id} className="transform rotate-90">
+              <a
+                href={`#${nav.id}`}
                 className={`
                   text-[18px] font-medium cursor-pointer text-white
-                  ${active === link.id ? 'opacity-100' : 'opacity-70'}
+                  ${active === nav.id ? 'opacity-100' : 'opacity-70'}
                   hover:opacity-100 transition-opacity duration-300
                 `}
-                onClick={() => {
-                  setActive(link.id);
-                  window.scrollTo(0, 0);
-                }}
+                onClick={() => setActive(nav.id)}
               >
-                {link.title}
-              </Link>
+                {nav.title}
+              </a>
             </li>
           ))}
         </ul>
