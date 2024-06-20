@@ -47,7 +47,7 @@ const ProjectCard = ({ project, index, total }) => {
 
 const Works = () => {
   return (
-    <div className="relative w-full min-h-screen flex flex-col items-center bg-primary pt-32">
+    <div className="relative w-full h-full flex flex-col items-center bg-primary py-64 ps-16">
       <div className="flex flex-col items-center">
         <motion.div
           variants={textVariant()}
@@ -58,7 +58,7 @@ const Works = () => {
             <TextDecode text={`Some of My Projects`} />
           </h2>
         </motion.div>
-        <div className="flex flex-row items-center w-full mt-8">
+        <div className="flex flex-row flex-wrap justify-center gap-10">
           {projects.map((project, index) => (
             <ProjectCard key={index} project={project} index={index} total={projects.length} />
           ))}
