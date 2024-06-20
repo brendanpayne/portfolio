@@ -39,7 +39,7 @@ import {
       title: "About",
     },
     {
-      id: "work",
+      id: "experience",
       title: "Work",
     },
     {

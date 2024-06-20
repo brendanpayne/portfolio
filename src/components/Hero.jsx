@@ -7,9 +7,11 @@ import TextDecode from '../utils/reveal.jsx';
 const Hero = () => {
   return (
     <section className={`relative w-full h-screen mx-auto`}>
-      <WavesCanvas />
+      <div className="w-full h-full min-h-[800px]">
+        <WavesCanvas />
+      </div>
       <div
-        className={`absolute inset-0 top-[200px] max-w-7xl mx-auto flex justify-center items-start gap-20 px-4 sm:px-0`}
+        className={`absolute inset-0 top-[200px] max-w-7xl mx-auto flex justify-center items-start gap-20 ps-12 px-4 sm:px-0`}
       >
         <div>
           <h1 className={`${styles.heroHeadText} text-white`}>

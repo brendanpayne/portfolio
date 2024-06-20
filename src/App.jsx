@@ -10,7 +10,7 @@ const App = () => {
         <div className="sticky top-0 z-1">
           <Hero />
         </div>
-        <div className="scroll-container">
+        <div className="">
           <div className="relative z-2">
             <About />
             <Experience />
