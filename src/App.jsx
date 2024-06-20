@@ -4,7 +4,7 @@ import { About, Contact, Experience, Feedbacks, Hero, Navbar, Tech, Works } from
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/portfolio/">
       <div className="relative z-0 bg-primary">
         <Navbar />
         <div className="sticky top-0 z-1">

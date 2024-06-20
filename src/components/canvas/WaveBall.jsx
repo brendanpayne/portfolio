@@ -2,6 +2,7 @@ import React, { useRef, useMemo } from 'react';
 import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import * as THREE from 'three';
 import { OrbitControls } from '@react-three/drei';
+import email from '../../assets/email.png';
 
 const WaveBallCanvas = () => {
     return (
@@ -14,7 +15,7 @@ const WaveBallCanvas = () => {
 }
 
 function WaveBall() {
-  const texture = useLoader(THREE.TextureLoader, 'src/assets/email.png');
+  const texture = useLoader(THREE.TextureLoader, email);
   const groupRef = useRef();
   const w = 50; // points 
   const h = 50; // lines
