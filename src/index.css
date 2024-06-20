@@ -23,70 +23,11 @@
   display: none;
 }
 
-.chevron-left {
-  position: relative;
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-}
-
-.chevron-left::before,
-.chevron-left::after {
-  content: '';
-  position: absolute;
-  width: 10px; /* Length */
-  height: 2px; /* Thickness */
-  background-color: currentColor;
-}
-
-.chevron-left::before {
-  transform: rotate(-45deg);
-  top: 50%;
-  right: 0;
-  transform-origin: left center;
-}
-
-.chevron-left::after {
-  transform: rotate(45deg);
-  top: 50%;
-  right: 0;
-  transform-origin: left center;
-}
-
-.chevron-right {
-  position: relative;
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-}
-
-.chevron-right::before,
-.chevron-right::after {
-  content: '';
-  position: absolute;
-  width: 10px; /* Length */
-  height: 2px; /* Thickness */
-  background-color: currentColor;
-}
-
-.chevron-right::before {
-  transform: rotate(45deg);
-  top: 50%;
-  left: 0;
-  transform-origin: right center;
-}
-
-.chevron-right::after {
-  transform: rotate(-45deg);
-  top: 50%;
-  left: 0;
-  transform-origin: right center;
-}
-
 .hash-span {
   margin-top: -100px;
   padding-bottom: 100px;
   display: block;
+  pointer-events: auto;
 }
 
 .black-gradient {
