@@ -1,6 +1,7 @@
-import EarthCanvas from "./Earth";
 import BallCanvas from "./Ball";
-import ComputersCanvas from "./Computers";
 import StarsCanvas from "./Stars";
+import WavesCanvas from "./Waves";
+import Card3DCanvas from "./Card3d";
+import WaveBallCanvas from "./WaveBall";
 
-export { EarthCanvas, BallCanvas, ComputersCanvas, StarsCanvas };
+export { BallCanvas, StarsCanvas, WavesCanvas, WaveBallCanvas, Card3DCanvas};

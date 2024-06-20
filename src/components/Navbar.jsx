@@ -1,87 +1,78 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { styles } from '../style';
-import { navLinks } from '../constants';
-import { logo, menu, close } from '../assets';
+import { navLinks, socials } from '../constants';
+import { logo } from '../assets';
 
 const Navbar = () => {
   const [active, setActive] = useState('');
-  const [toggle, setToggle] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      if (scrollTop > 100) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <nav
-      className={`
-        ${styles.paddingX} w-full flex items-center py-5 fixed top-0 z-20 bg-primary
-      `}
-    >
-      <div className='w-full flex justify-between items-center max-w-7xl mx-auto'>
-        <Link 
+    <nav className="fixed left-0 top-0 min-h-screen w-16 bg-primary text-gray-400 flex flex-col items-center py-8 space-y-4 z-50">
+      <div className='mb-8'>
+        <Link
           to="/"
-          className='flex items-center gap-2'
           onClick={() => {
             setActive('');
             window.scrollTo(0, 0);
           }}
         >
           <img src={logo} alt="logo" className='w-9 h-9 object-contain' />
-          <p className='text-white text-[18px] font-bold cursor-pointer flex'>
-            Brendan Payne&nbsp; 
-            <span className='sm:block hidden'>| Software 
-            Engineer</span>
-          </p>
         </Link>
-        <ul className='list-none hidden sm:flex flex-row gap-10'>
-          {navLinks.map((link) => (
-            <li key={link.id}>
-              <Link
-                to={`#${link.id}`}
+      </div>
+      <div className='flex flex-1 flex-col justify-between'>
+        <ul className='list-none flex flex-col items-center space-y-[50px]'>
+          {navLinks.map((nav) => (
+            <li key={nav.id} className="transform rotate-90">
+              <a
+                href={`#${nav.id}`}
                 className={`
-                  text-[18px] font-medium cursor-pointer
-                  ${active === link.id ? 'text-white' : 'text-secondary'}
-                  hover:text-white
+                  text-[18px] font-medium cursor-pointer text-white
+                  ${active === nav.id ? 'opacity-100' : 'opacity-70'}
+                  hover:opacity-100 transition-opacity duration-300
                 `}
-                onClick={() => {
-                  setActive(link.id);
-                  window.scrollTo(0, 0);
-                }}
+                onClick={() => setActive(nav.id)}
               >
-                {link.title}
-              </Link>
+                {nav.title}
+              </a>
             </li>
           ))}
         </ul>
-        <div
-          className='sm:hidden block d-flex flex-column-reverse'
-          onClick={() => setToggle(!toggle)}
-        >
-          <div className={`${!toggle ? 'hidden' : ''} bg-primary opacity-60 navmenu`}>
-            <ul className='list-none flex justify-start items-start flex-col gap-4 p-6'>
-              {navLinks.map((link) => (
-                <li key={link.id}>
-                  <Link
-                    to={`#${link.id}`}
-                    className={`
-                      text-[18px] font-medium cursor-pointer
-                      ${active === link.id ? 'text-white' : 'text-secondary'}
-                      font-poppins font-medium cursor-pointer text-[16px]
-                    `}
-                    onClick={() => {
-                      setToggle(!toggle)
-                      setActive(link.id);
-                      window.scrollTo(0, 0);
-                    }}
-                  >
-                    {link.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <img src={toggle ? close : menu} alt="menu" className='w-6 h-6' />
-        </div>
+        <ul className='list-none flex flex-col items-center space-y-[40px]'>
+          {socials.map((social) => (
+            <li key={social.id}>
+              <a
+                href={social.url}
+                target='_blank'
+                rel='noreferrer'
+                className={`
+                  cursor-pointer
+                `}
+              >
+                <img src={social.icon} alt={social.id} className='w-6 h-6 object-contain opacity-70 hover:opacity-100 transition-opacity duration-300' />
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
     </nav>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;
