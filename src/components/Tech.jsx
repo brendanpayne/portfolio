@@ -1,5 +1,6 @@
 import { useState, Suspense } from 'react';
 import Loader from './Loader';
+import CanvasErrorBoundary from './CanvasErrorBoundary';
 import { motion } from 'framer-motion';
 import TextDecode from '../utils/reveal.jsx';
 import { BallCanvas } from './canvas';
@@ -74,9 +75,11 @@ const Tech = () => {
           variants={fadeIn('down', 'spring', 0.5, 2)}
           className="relative z-10 w-full h-full bg-primary flex justify-center items-center"
         >
-          <Suspense fallback={<Loader />}>
-            <BallCanvas />
-          </Suspense>
+          <CanvasErrorBoundary>
+            <Suspense fallback={<Loader />}>
+              <BallCanvas />
+            </Suspense>
+          </CanvasErrorBoundary>
         </motion.div>
       </div>
     </div>
