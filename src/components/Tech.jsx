@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
+import Loader from './Loader';
 import { motion } from 'framer-motion';
 import TextDecode from '../utils/reveal.jsx';
 import { BallCanvas } from './canvas';
@@ -73,7 +74,9 @@ const Tech = () => {
           variants={fadeIn('down', 'spring', 0.5, 2)}
           className="relative z-10 w-full h-full bg-primary flex justify-center items-center"
         >
-          <BallCanvas />
+          <Suspense fallback={<Loader />}>
+            <BallCanvas />
+          </Suspense>
         </motion.div>
       </div>
     </div>

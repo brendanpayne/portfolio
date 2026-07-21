@@ -1,4 +1,5 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, Suspense } from 'react';
+import Loader from './Loader';
 import { motion } from 'framer-motion';
 import emailjs from "@emailjs/browser";
 
@@ -129,7 +130,9 @@ const Contact = () => {
         variants={slideIn("right", "tween", 0.2, 1)}
         className='xl:flex-1 xl:h-auto md:h-[550px] h-[350px] md:w-[550px] w-[350px]'
       >
-        <WaveBallCanvas />
+        <Suspense fallback={<Loader />}>
+          <WaveBallCanvas />
+        </Suspense>
       </motion.div>
       </div>
     </div>

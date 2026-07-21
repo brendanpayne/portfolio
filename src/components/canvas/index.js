@@ -1,7 +1,8 @@
-import BallCanvas from "./Ball";
-import StarsCanvas from "./Stars";
-import WavesCanvas from "./Waves";
-import Card3DCanvas from "./Card3d";
-import WaveBallCanvas from "./WaveBall";
+import { lazy } from 'react';
+import WavesCanvas from './Waves';
 
-export { BallCanvas, StarsCanvas, WavesCanvas, WaveBallCanvas, Card3DCanvas};
+const BallCanvas = lazy(() => import('./Ball'));
+const Card3DCanvas = lazy(() => import('./Card3d'));
+const WaveBallCanvas = lazy(() => import('./WaveBall'));
+
+export { BallCanvas, WavesCanvas, WaveBallCanvas, Card3DCanvas };

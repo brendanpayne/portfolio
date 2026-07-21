@@ -1,4 +1,4 @@
-import { BallCanvas, StarsCanvas, WavesCanvas, WaveBallCanvas, Card3DCanvas } from './canvas';
+import { BallCanvas, WavesCanvas, WaveBallCanvas, Card3DCanvas } from './canvas';
 import Hero from './Hero';
 import Navbar from './Navbar';
 import About from './About';
@@ -15,8 +15,8 @@ export {
   Experience,
   Works,
   Contact,
-  BallCanvas, 
-  StarsCanvas,
+
+  BallCanvas,
   WavesCanvas,
   WaveBallCanvas,
   Card3DCanvas

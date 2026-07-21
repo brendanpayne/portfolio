@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
+import Loader from './Loader';
 import { motion } from 'framer-motion';
 import TextDecode from '../utils/reveal.jsx';
 import { Card3DCanvas } from "./canvas";
@@ -25,7 +26,9 @@ const About = () => {
           variants={fadeIn('right', 'spring', 0.5, 1)}
           className="flex xl:w-full w-0 xl:h-full xl:max-h-[1500px] h-0 justify-center items-center xl:max-w-3xl p-8"
         >
-          <Card3DCanvas imageUrl={cards[currentCard].imageUrl} className="w-full h-full" />
+          <Suspense fallback={<Loader />}>
+            <Card3DCanvas imageUrl={cards[currentCard].imageUrl} className="w-full h-full" />
+          </Suspense>
         </motion.div>
         <div className="flex flex-row w-full h-full justify-center items-center xl:max-w-3xl xl:ps-0 ps-24">
           {currentCard > 0 && (
