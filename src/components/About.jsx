@@ -33,7 +33,7 @@ const About = () => {
               onClick={handlePreviousClick}
               className="text-white text-[32px] font-medium rounded-full w-16 h-16 flex justify-center items-center"
             >
-              <motion.p
+              <motion.span
                 animate={{
                   x: [0, -12, 0],
                 }}
@@ -44,7 +44,7 @@ const About = () => {
                 }}
               >
                 &lt;
-              </motion.p>
+              </motion.span>
             </button>
           )}
           <motion.div
@@ -55,19 +55,19 @@ const About = () => {
             <h2 className={`${styles.sectionHeadText} text-white`}>
               <TextDecode key={cards[currentCard].text} text={cards[currentCard].title} />
             </h2>
-            <p
+            <motion.p
               variants={fadeIn('left', 'spring', 0.1, 1)}
               className='flex flex-col mt-4 text-secondary text-[18px] font-light leading-[30px]'
             >
               <TextDecode key={cards[currentCard].text} text={cards[currentCard].text} />
-            </p>
+            </motion.p>
           </motion.div>
           {currentCard < cards.length - 1 && (
             <button
               onClick={handleLearnMoreClick}
               className="text-white text-[32px] font-medium rounded-full w-16 h-16 flex justify-center items-center"
             >
-              <motion.p
+              <motion.span
                 animate={{
                   x: [0, 12, 0],
                 }}
@@ -78,7 +78,7 @@ const About = () => {
                 }}
               >
                 &gt;
-              </motion.p>
+              </motion.span>
             </button>
           )}
         </div>
