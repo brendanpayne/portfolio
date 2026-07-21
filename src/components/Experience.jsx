@@ -1,5 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { motion, useAnimation } from 'framer-motion';
+import { motion } from 'framer-motion';
 import TextDecode from '../utils/reveal.jsx';
 import { styles } from "../style";
 import { textVariant, fadeIn } from '../utils/motion';

@@ -1,4 +1,4 @@
-import React, { useRef, useState, Suspense } from 'react';
+import { useRef, useState, Suspense } from 'react';
 import Loader from './Loader';
 import { motion } from 'framer-motion';
 import emailjs from "@emailjs/browser";

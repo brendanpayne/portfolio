@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { styles } from '../style';
+import { useEffect, useState } from "react";
 import { navLinks, socials } from '../constants';
 import { logo } from '../assets';
 
@@ -26,15 +24,16 @@ const Navbar = () => {
   return (
     <nav className={`fixed left-0 top-0 min-h-screen w-16 bg-primary text-gray-400 flex flex-col items-center py-8 space-y-4 z-50 transition-opacity duration-500 ${scrolled ? 'opacity-100' : 'opacity-0'}`}>
       <div className='mb-8'>
-        <Link
-          to="/"
+        <button
+          type="button"
+          aria-label="Scroll to top"
           onClick={() => {
             setActive('');
             window.scrollTo(0, 0);
           }}
         >
-          <img src={logo} alt="logo" className='w-9 h-9 object-contain' />
-        </Link>
+          <img src={logo} alt="" className='w-9 h-9 object-contain' />
+        </button>
       </div>
       <div className='flex flex-1 flex-col justify-between'>
         <ul className='list-none flex flex-col items-center space-y-[50px]'>

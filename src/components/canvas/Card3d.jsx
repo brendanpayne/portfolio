@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { Canvas, useLoader, useFrame, useThree } from '@react-three/fiber';
 import { RoundedBox, Environment } from '@react-three/drei';
 import { TextureLoader, ShaderMaterial } from 'three';

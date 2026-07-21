@@ -1,10 +1,10 @@
-import React, { useState, Suspense } from 'react';
+import { useState, Suspense } from 'react';
 import Loader from './Loader';
 import { motion } from 'framer-motion';
 import TextDecode from '../utils/reveal.jsx';
 import { BallCanvas } from './canvas';
 import { styles } from "../style";
-import { textVariant, fadeIn } from '../utils/motion';
+import { fadeIn } from '../utils/motion';
 import { SectionWrapper } from '../hoc/index.js';
 import { Tilt } from 'react-tilt';
 import { technologies } from '../constants';

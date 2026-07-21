@@ -1,4 +1,4 @@
-import React, { useState, Suspense } from 'react';
+import { useState, Suspense } from 'react';
 import Loader from './Loader';
 import { motion } from 'framer-motion';
 import TextDecode from '../utils/reveal.jsx';
