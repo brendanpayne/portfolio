@@ -24,7 +24,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="fixed left-0 top-0 min-h-screen w-16 bg-primary text-gray-400 flex flex-col items-center py-8 space-y-4 z-50">
+    <nav className={`fixed left-0 top-0 min-h-screen w-16 bg-primary text-gray-400 flex flex-col items-center py-8 space-y-4 z-50 transition-opacity duration-500 ${scrolled ? 'opacity-100' : 'opacity-40'}`}>
       <div className='mb-8'>
         <Link
           to="/"
