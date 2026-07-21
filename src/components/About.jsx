@@ -33,6 +33,7 @@ const About = () => {
         <div className="flex flex-row w-full h-full justify-center items-center xl:max-w-3xl xl:ps-0 ps-24">
           {currentCard > 0 && (
             <button
+              aria-label="Previous card"
               onClick={handlePreviousClick}
               className="text-white text-[32px] font-medium rounded-full w-16 h-16 flex justify-center items-center"
             >
@@ -67,6 +68,7 @@ const About = () => {
           </motion.div>
           {currentCard < cards.length - 1 && (
             <button
+              aria-label="Next card"
               onClick={handleLearnMoreClick}
               className="text-white text-[32px] font-medium rounded-full w-16 h-16 flex justify-center items-center"
             >

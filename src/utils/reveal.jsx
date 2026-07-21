@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
 const randomChar = () => {
@@ -12,15 +12,17 @@ const scrambleText = (text) => {
 };
 
 const TextDecode = ({ text, color, speed = 2 }) => {
+  const shouldReduceMotion = useReducedMotion();
   const [ref, inView] = useInView({
     triggerOnce: true,
-    threshold: 0.2, 
+    threshold: 0.2,
   });
-  const [displayedText, setDisplayedText] = useState(scrambleText(text));
-  const [revealed, setRevealed] = useState(false);
-  const [iterations, setIterations] = useState(0); 
+  const [displayedText, setDisplayedText] = useState(shouldReduceMotion ? text : scrambleText(text));
+  const [revealed, setRevealed] = useState(!!shouldReduceMotion);
+  const [iterations, setIterations] = useState(0);
 
   useEffect(() => {
+    if (shouldReduceMotion) return;
     if (inView && !revealed) {
       let currentText = scrambleText(text);
       const interval = setInterval(() => {
@@ -29,7 +31,7 @@ const TextDecode = ({ text, color, speed = 2 }) => {
           .map((char, i) => (iterations >= i ? text[i] : randomChar()))
           .join('');
         setDisplayedText(currentText);
-        setIterations(iterations + speed * (text.length / 20)); 
+        setIterations(iterations + speed * (text.length / 20));
         if (iterations > text.length) {
           clearInterval(interval);
           setRevealed(true);
@@ -37,13 +39,21 @@ const TextDecode = ({ text, color, speed = 2 }) => {
       }, 50);
       return () => clearInterval(interval);
     }
-  }, [inView, revealed, text, iterations]); 
-  
+  }, [inView, revealed, text, iterations, shouldReduceMotion]);
+
   return (
-    <motion.div ref={ref} initial={{ opacity: 0 }} animate={{ opacity: inView ? 1 : 0 }} transition={{ duration: 0.5 }}>
-      {displayedText.split('').map((char, i) => (
-        <span key={i} style={{ color: i < iterations ? color : '#915EFF' }}>{char}</span>
-      ))}
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: inView || shouldReduceMotion ? 1 : 0 }}
+      transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.5 }}
+    >
+      {shouldReduceMotion
+        ? text
+        : displayedText.split('').map((char, i) => (
+            <span key={i} style={{ color: i < iterations ? color : '#915EFF' }}>{char}</span>
+          ))
+      }
     </motion.div>
   );
 };

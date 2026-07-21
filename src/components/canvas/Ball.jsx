@@ -62,6 +62,7 @@ function Pointer({ vec = new THREE.Vector3() }) {
 
 const BallCanvas = () => {
   return (
+    <div role="img" aria-label="Interactive physics display of technology skills" className="w-full h-full">
     <Canvas orthographic camera={{ zoom: 10 }}>
       <ambientLight intensity={1} />
       <Physics gravity={[0, 0, 0]}>
@@ -80,6 +81,7 @@ const BallCanvas = () => {
         </mesh>
       </Bounds>
     </Canvas>
+    </div>
   )
 }
 

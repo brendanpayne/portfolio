@@ -1,15 +1,15 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
-import { styles } from "../style";
 import { staggerContainer } from "../utils/motion";
 
 const StarWrapper = (Component, idName) =>
   function HOC() {
+    const shouldReduceMotion = useReducedMotion();
     return (
       <motion.section
-        variants={staggerContainer()}
-        initial='hidden'
-        whileInView='show'
+        variants={shouldReduceMotion ? undefined : staggerContainer()}
+        initial={shouldReduceMotion ? false : 'hidden'}
+        whileInView={shouldReduceMotion ? undefined : 'show'}
         viewport={{ once: true, amount: 0.25 }}
         className={`mx-auto overflow-x-hidden relative z-0 bg-primary`}
       >

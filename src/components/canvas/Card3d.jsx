@@ -4,30 +4,31 @@ import { RoundedBox, Environment } from '@react-three/drei';
 import { TextureLoader, ShaderMaterial } from 'three';
 import * as THREE from 'three';
 
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 const Card3D = ({ imageUrl, isMouseOver, isMobile }) => {
   const groupRef = useRef();
   const { mouse, viewport } = useThree();
 
   useFrame(({ clock }) => {
-    if (groupRef.current) {
-      let targetRotationY = 0;
-      let targetRotationX = 0;
+    if (prefersReducedMotion || !groupRef.current) return;
 
-      if (isMouseOver) {
-        const x = (mouse.x * viewport.width) / 2;
-        const y = (mouse.y * viewport.height) / 2;
-        
-        targetRotationY = Math.atan2(x, 10);
-        targetRotationX = Math.atan2(y, 10);
-      } else {
-        const time = clock.getElapsedTime();
-        targetRotationY = 0.05 * Math.sin(time);
-        targetRotationX = 0.05 * Math.cos(time);
-      }
+    let targetRotationY = 0;
+    let targetRotationX = 0;
 
-      groupRef.current.rotation.y = THREE.MathUtils.lerp(groupRef.current.rotation.y, targetRotationY, 0.1);
-      groupRef.current.rotation.x = THREE.MathUtils.lerp(groupRef.current.rotation.x, -targetRotationX, 0.1);
+    if (isMouseOver) {
+      const x = (mouse.x * viewport.width) / 2;
+      const y = (mouse.y * viewport.height) / 2;
+      targetRotationY = Math.atan2(x, 10);
+      targetRotationX = Math.atan2(y, 10);
+    } else {
+      const time = clock.getElapsedTime();
+      targetRotationY = 0.05 * Math.sin(time);
+      targetRotationX = 0.05 * Math.cos(time);
     }
+
+    groupRef.current.rotation.y = THREE.MathUtils.lerp(groupRef.current.rotation.y, targetRotationY, 0.1);
+    groupRef.current.rotation.x = THREE.MathUtils.lerp(groupRef.current.rotation.x, -targetRotationX, 0.1);
   });
 
   const texture = useLoader(TextureLoader, imageUrl);
@@ -120,6 +121,8 @@ const Card3DCanvas = ({ imageUrl, className }) => {
 
   return (
     <div
+      role="img"
+      aria-label="3D card displaying portfolio photo"
       onMouseEnter={() => setIsMouseOver(true)}
       onMouseLeave={() => setIsMouseOver(false)}
       className={className}
