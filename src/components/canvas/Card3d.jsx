@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from 'react';
 import { Canvas, useLoader, useFrame, useThree } from '@react-three/fiber';
-import { RoundedBox, Environment } from '@react-three/drei';
+import { RoundedBox } from '@react-three/drei';
 import { TextureLoader, ShaderMaterial } from 'three';
 import * as THREE from 'three';
 
@@ -32,22 +32,25 @@ const Card3D = ({ imageUrl, isMouseOver, isMobile }) => {
   });
 
   const texture = useLoader(TextureLoader, imageUrl);
+  texture.colorSpace = THREE.SRGBColorSpace;
   texture.repeat.set(0.3, 0.25);
   texture.center.set(0.1, 0);
 
   const materials = [
-    new THREE.MeshStandardMaterial({ 
-      map: texture, 
-      roughness: 0.8, 
-      metalness: 1,
+    new THREE.MeshStandardMaterial({
+      map: texture,
+      roughness: 0.75,
+      metalness: 0,
+      emissive: new THREE.Color(0.02, 0.02, 0.02),
       side: THREE.FrontSide,
     }),
-    new THREE.MeshStandardMaterial({ color: '#915EFF', roughness: 0.6, metalness: 0.8 }),
+    new THREE.MeshStandardMaterial({ color: '#915EFF', roughness: 0.5, metalness: 0.2 }),
   ];
 
   return (
     <group ref={groupRef} position={[0, 0.5, 0]} castShadow>
-      <ambientLight intensity={1} color={'#DDD'} />
+      <ambientLight intensity={0.95} color={'#ffffff'} />
+      <directionalLight intensity={0.6} position={[3, 4, 3]} />
       {/* 3D Card */}
       <mesh castShadow receiveShadow>
         <RoundedBox args={[3, 4, 0.2]} radius={0.1} smoothness={4} scale={isMobile ? 0.8 : 1}>
@@ -133,7 +136,6 @@ const Card3DCanvas = ({ imageUrl, className }) => {
       >
         <StaticLights isMobile={isMobile} />
         <Scene imageUrl={imageUrl} isMouseOver={isMouseOver} isMobile={isMobile}/>
-        <Environment files="https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/kloofendal_48d_partly_cloudy_puresky_1k.hdr"/>
       </Canvas>
     </div>
   );
