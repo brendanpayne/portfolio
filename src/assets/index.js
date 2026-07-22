@@ -23,6 +23,7 @@ import typescript from "./tech/typescript.png";
 import unity from "./tech/unity.svg";
 
 import ktd from "./company/ktd.png";
+import netneural from "./company/netneural.png";
 
 import protify from "./works/protify.png";
 import pentango from "./works/pentango.png";
@@ -66,6 +67,7 @@ export {
   typescript,
   unity,
   ktd,
+  netneural,
   protify,
   pentango,
   portfolio,

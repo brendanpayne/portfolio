@@ -16,6 +16,7 @@ import {
     typescript,
 
     ktd,
+    netneural,
 
     protify,
     pentango,
@@ -184,7 +185,7 @@ import {
     {
       title: "Founding Full Stack Engineer",
       company_name: "NetNeural.AI",
-      icon: null, // TODO: add NetNeural logo to src/assets/company/
+      icon: netneural,
       iconBg: "#6366f1",
       date: "July 2024 - Present",
       points: [
