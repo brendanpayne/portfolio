@@ -187,6 +187,7 @@ import {
       company_name: "NetNeural.AI",
       icon: netneural,
       iconBg: "#6366f1",
+      iconScale: 1.8,
       date: "July 2024 - Present",
       points: [
         `Architect and deploy a full-stack React and TypeScript application on cloud infrastructure, building production-level APIs via Supabase (PostgreSQL, Edge Functions, real-time subscriptions) and a self-hosted IoT broker stack on Digital Ocean supporting real-time device telemetry across multi-tenant architectures.`,
@@ -200,6 +201,7 @@ import {
       company_name: "Kroger Technology & Digital",
       icon: ktd,
       iconBg: "#0c4b99",
+      iconScale: 1.2,
       date: "August 2023 - August 2024",
       points: [
         `Engineered and maintained a Kotlin and Java Android application serving 200,000+ associates, reducing UI rendering time by 25% by leading migration from legacy XML layouts to Jetpack Compose.`,
@@ -213,6 +215,7 @@ import {
       company_name: "Kroger Technology & Digital",
       icon: ktd,
       iconBg: "#0c4b99",
+      iconScale: 1.2,
       date: "December 2020 - August 2023",
       points: [
         `Designed and built a store associate Android application (US Patent No. US12007375B2) surfacing real-time fresh food freshness status and spoilage predictions, integrating NfcV sensor data with AI/ML inference.`,

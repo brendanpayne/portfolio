@@ -17,9 +17,14 @@ const ExperienceCard = ({ experience, index }) => {
         className="flex flex-col items-start bg-tertiary p-5 rounded-2xl shadow-card flex-1"
       >
         <div className="flex flex-row items-center gap-3 mb-3 w-full">
-          <div className="w-10 h-10 shrink-0 rounded-full flex items-center justify-center p-2" style={{ backgroundColor: experience.iconBg }}>
+          <div className="w-10 h-10 shrink-0 rounded-full overflow-hidden flex items-center justify-center p-2" style={{ backgroundColor: experience.iconBg }}>
             {experience.icon && (
-              <img src={experience.icon} alt={`${experience.company_name} logo`} className="w-full h-full object-contain" />
+              <img
+                src={experience.icon}
+                alt={`${experience.company_name} logo`}
+                className="w-full h-full object-contain"
+                style={{ transform: `scale(${experience.iconScale ?? 1})` }}
+              />
             )}
           </div>
           <div className="flex flex-col min-w-0">
@@ -45,7 +50,7 @@ const ExperienceCard = ({ experience, index }) => {
 
 const Experience = () => {
   return (
-    <div className="relative w-full h-full flex flex-col items-center bg-primary xl:py-16 py-32 px-8">
+    <div className="relative w-full h-full flex flex-col items-center bg-primary xl:py-16 py-32 pl-20 pr-8 xl:px-8">
       <motion.div
         variants={textVariant()}
         className="w-full max-w-6xl flex flex-col items-center"
