@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { styles } from '../style';
+import { useEffect, useState } from "react";
 import { navLinks, socials } from '../constants';
 import { logo } from '../assets';
 
@@ -24,17 +22,18 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="fixed left-0 top-0 min-h-screen w-16 bg-primary text-gray-400 flex flex-col items-center py-8 space-y-4 z-50">
+    <nav className={`fixed left-0 top-0 min-h-screen w-16 bg-primary text-gray-400 flex flex-col items-center py-8 space-y-4 z-50 transition-opacity duration-500 ${scrolled ? 'opacity-100' : 'opacity-0'}`}>
       <div className='mb-8'>
-        <Link
-          to="/"
+        <button
+          type="button"
+          aria-label="Scroll to top"
           onClick={() => {
             setActive('');
             window.scrollTo(0, 0);
           }}
         >
-          <img src={logo} alt="logo" className='w-9 h-9 object-contain' />
-        </Link>
+          <img src={logo} alt="" className='w-9 h-9 object-contain' />
+        </button>
       </div>
       <div className='flex flex-1 flex-col justify-between'>
         <ul className='list-none flex flex-col items-center space-y-[50px]'>
@@ -56,16 +55,15 @@ const Navbar = () => {
         </ul>
         <ul className='list-none flex flex-col items-center space-y-[40px]'>
           {socials.map((social) => (
-            <li key={social.id}>
+            <li key={social.name}>
               <a
                 href={social.url}
                 target='_blank'
                 rel='noreferrer'
-                className={`
-                  cursor-pointer
-                `}
+                aria-label={`${social.name} profile`}
+                className="cursor-pointer"
               >
-                <img src={social.icon} alt={social.id} className='w-6 h-6 object-contain opacity-70 hover:opacity-100 transition-opacity duration-300' />
+                <img src={social.icon} alt="" className='w-6 h-6 object-contain opacity-70 hover:opacity-100 transition-opacity duration-300' />
               </a>
             </li>
           ))}

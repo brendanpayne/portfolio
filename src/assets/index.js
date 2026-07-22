@@ -23,11 +23,14 @@ import typescript from "./tech/typescript.png";
 import unity from "./tech/unity.svg";
 
 import ktd from "./company/ktd.png";
+import netneural from "./company/netneural.png";
 
 import protify from "./works/protify.png";
 import pentango from "./works/pentango.png";
 import portfolio from "./works/portfolio.png";
 import neato from "./works/neato.png";
+import card from "./works/card.png";
+import chatbot from "./works/chatbot.png";
 
 import github from "./github.png";
 import linkedin from "./linkedin.png";
@@ -64,10 +67,13 @@ export {
   typescript,
   unity,
   ktd,
+  netneural,
   protify,
   pentango,
   portfolio,
   neato,
+  card,
+  chatbot,
   github,
   linkedin,
   twitter,

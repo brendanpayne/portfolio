@@ -1,16 +1,19 @@
-import React, { useRef, useMemo } from 'react';
+import { useRef, useMemo } from 'react';
 import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import * as THREE from 'three';
-import { OrbitControls } from '@react-three/drei';
 import email from '../../assets/email.png';
+
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 const WaveBallCanvas = () => {
     return (
-        <Canvas camera={{ position: [0, 12, 0] }}>
-            <ambientLight intensity={0.5} />
-            <pointLight position={[10, 10, 10]} />
-            <WaveBall />
-        </Canvas>
+        <div aria-hidden="true" className="w-full h-full">
+            <Canvas camera={{ position: [0, 12, 0] }}>
+                <ambientLight intensity={0.5} />
+                <pointLight position={[10, 10, 10]} />
+                <WaveBall />
+            </Canvas>
+        </div>
     )
 }
 
@@ -39,10 +42,11 @@ function WaveBall() {
     return linesArray;
   }, [w, h, r]);
 
-  useFrame(({ clock, delta }) => {
+  useFrame(({ clock }) => {
+    if (prefersReducedMotion) return;
     const time = clock.getElapsedTime();
-    lines.forEach(({ geometry, points }, i) => {
-      points.forEach((point, j) => {
+    lines.forEach(({ geometry, points }) => {
+      points.forEach((point) => {
           const wave = Math.sin((point.x * 0.3 + time)) + Math.cos((point.y * 0.3 + time));
           const newR = r + wave * 0.5;
           point.setLength(newR);

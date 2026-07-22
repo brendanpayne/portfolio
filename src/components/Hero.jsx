@@ -3,12 +3,15 @@ import { motion } from "framer-motion";
 import { styles } from "../style";
 import { WavesCanvas } from "./canvas";
 import TextDecode from '../utils/reveal.jsx';
+import CanvasErrorBoundary from './CanvasErrorBoundary';
 
 const Hero = () => {
   return (
     <section className={`relative w-full h-screen mx-auto`}>
       <div className="w-full h-full min-h-[800px]">
-        <WavesCanvas />
+        <CanvasErrorBoundary>
+          <WavesCanvas />
+        </CanvasErrorBoundary>
       </div>
       <div
         className={`absolute inset-0 top-[200px] max-w-7xl mx-auto flex justify-center items-start gap-20 ps-12 px-4 sm:px-0`}

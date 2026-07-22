@@ -1,7 +1,9 @@
-import React, { useRef, useMemo } from 'react';
+import { useRef, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 import useScrollPosition from '../../utils/scroll';
+
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 const WavesCanvas = () => {
   const { scrollPosition, viewportHeight } = useScrollPosition();
@@ -9,7 +11,7 @@ const WavesCanvas = () => {
 
 
     return (
-      <div className="w-full h-full transition-opacity" style={{ opacity }}>
+      <div className="w-full h-full transition-opacity" style={{ opacity }} aria-hidden="true">
         <Canvas camera={{ position: [10, 25, 10] }}>
             <ambientLight intensity={0.5} />
             <pointLight position={[10, 10, 10]} />
@@ -34,7 +36,8 @@ function Waves() {
       return linesArray;
     }, [w, h]);
   
-    useFrame(({ clock, delta }) => {
+    useFrame(({ clock }) => {
+      if (prefersReducedMotion) return;
       const time = clock.getElapsedTime();
       lines.forEach(({ geometry, points }, i) => {
         points.forEach((point, j) => {
@@ -43,7 +46,7 @@ function Waves() {
         geometry.setFromPoints(points);
         geometry.attributes.position.needsUpdate = true;
       });
-  
+
       if (groupRef.current) {
         groupRef.current.rotation.y += 0.0002;
       }

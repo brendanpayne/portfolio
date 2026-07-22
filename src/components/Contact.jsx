@@ -1,4 +1,6 @@
-import React, { useRef, useState } from 'react';
+import { useRef, useState, Suspense } from 'react';
+import Loader from './Loader';
+import CanvasErrorBoundary from './CanvasErrorBoundary';
 import { motion } from 'framer-motion';
 import emailjs from "@emailjs/browser";
 
@@ -17,15 +19,13 @@ const Contact = () => {
   });
 
   const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState(null);
 
   const handleChange = (e) => {
     const { target } = e;
     const { name, value } = target;
-
-    setForm({
-      ...form,
-      [name]: value,
-    });
+    setStatus(null);
+    setForm({ ...form, [name]: value });
   };
 
   const handleSubmit = (e) => {
@@ -48,19 +48,13 @@ const Contact = () => {
       .then(
         () => {
           setLoading(false);
-          alert("Message sent successfully!");
-
-          setForm({
-            name: "",
-            email: "",
-            message: "",
-          });
+          setStatus('success');
+          setForm({ name: "", email: "", message: "" });
         },
         (error) => {
           setLoading(false);
           console.error(error);
-
-          alert("Failed to send message. Please try again later.");
+          setStatus('error');
         }
       );
   };
@@ -85,27 +79,32 @@ const Contact = () => {
           className='mt-12 flex flex-col gap-8'
         >
           <label className='flex flex-col'>
-            <TextDecoder text='Your name' />
+            <span className='sr-only'>Your name</span>
+            <span aria-hidden='true'><TextDecoder text='Your name' /></span>
             <input
               type='text'
               name='name'
+              autoComplete='name'
               value={form.name}
               onChange={handleChange}
               className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
             />
           </label>
           <label className='flex flex-col'>
-            <TextDecoder text='Your email' />
+            <span className='sr-only'>Your email</span>
+            <span aria-hidden='true'><TextDecoder text='Your email' /></span>
             <input
               type='email'
               name='email'
+              autoComplete='email'
               value={form.email}
               onChange={handleChange}
               className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
             />
           </label>
           <label className='flex flex-col'>
-            <TextDecoder text='Your message' />
+            <span className='sr-only'>Your message</span>
+            <span aria-hidden='true'><TextDecoder text='Your message' /></span>
             <textarea
               rows={7}
               name='message'
@@ -118,10 +117,22 @@ const Contact = () => {
 
           <button
             type='submit'
-            className='bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary'
+            disabled={loading}
+            className='bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary disabled:opacity-50'
           >
             {loading ? "Sending..." : "Send"}
           </button>
+
+          {status === 'success' && (
+            <p role="status" className="text-green-400 font-medium">
+              Message sent! I&apos;ll be in touch soon.
+            </p>
+          )}
+          {status === 'error' && (
+            <p role="alert" className="text-red-400 font-medium">
+              Something went wrong. Please try again.
+            </p>
+          )}
         </form>
       </motion.div>
 
@@ -129,7 +140,11 @@ const Contact = () => {
         variants={slideIn("right", "tween", 0.2, 1)}
         className='xl:flex-1 xl:h-auto md:h-[550px] h-[350px] md:w-[550px] w-[350px]'
       >
-        <WaveBallCanvas />
+        <CanvasErrorBoundary>
+          <Suspense fallback={<Loader />}>
+            <WaveBallCanvas />
+          </Suspense>
+        </CanvasErrorBoundary>
       </motion.div>
       </div>
     </div>
