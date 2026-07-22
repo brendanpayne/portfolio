@@ -3,22 +3,17 @@ import {
     android,
     azure,
     cplusplus,
-    css,
     docker,
-    figma,
     firebase,
     git,
-    html,
     java,
     javascript,
     kotlin,
     nodejs,
     python,
     reactjs,
-    tailwind,
     threejs,
     typescript,
-    unity,
 
     ktd,
 
@@ -26,10 +21,11 @@ import {
     pentango,
     portfolio,
     neato,
+    card,
+    chatbot,
 
     github,
     linkedin,
-    //twitter,
     email,
 
     about_1,
@@ -60,11 +56,11 @@ import {
       subtitle: 'Introduction',
       title: 'About Me',
       text: `
-        I'm a software developer soon-to-be based in the Greater Boston Area. My expertise lies
-        in full-stack development, with most of my experience being in mobile application development leveraging
-        technologies like Kotlin, Swift, and React Native. I'm passionate about creating innovative solutions
-        to complex problems and I'm always looking to learn new things. Let's innovate and create something
-        amazing together!
+        I'm a software developer based in Greater Boston, currently working as a Founding Full Stack
+        Engineer at NetNeural.AI. My experience spans full-stack web development, Android application
+        development, and AI integrations — from shipping Kotlin apps to 200,000+ users at Kroger to
+        building self-hosted agentic AI infrastructure. I'm passionate about applying emerging tools to
+        hard problems. Let's build something amazing together!
       `
     },
     {
@@ -128,19 +124,9 @@ import {
       color: "#00599c",
     },
     {
-      name: "CSS",
-      icon: css,
-      color: "#264de4",
-    },
-    {
       name: "Docker",
       icon: docker,
       color: "#2496ed",
-    },
-    {
-      name: "Figma",
-      icon: figma,
-      color: "#f24e1e",
     },
     {
       name: "Firebase",
@@ -151,11 +137,6 @@ import {
       name: "Git",
       icon: git,
       color: "#f34f29",
-    },
-    {
-      name: "HTML",
-      icon: html,
-      color: "#e34f26",
     },
     {
       name: "Java",
@@ -183,14 +164,9 @@ import {
       color: "#3776ab",
     },
     {
-      name: "React.js",
+      name: "React",
       icon: reactjs,
       color: "#61dbfb",
-    },
-    {
-      name: "Tailwind CSS",
-      icon: tailwind,
-      color: "#38b2ac",
     },
     {
       name: "Three.js",
@@ -202,38 +178,45 @@ import {
       icon: typescript,
       color: "#007acc",
     },
-    {
-      name: "Unity",
-      icon: unity,
-      color: "#AAAAAA",
-    },
   ];
   
   const experiences = [
     {
-      title: "Research and Development Intern",
-      company_name: "Kroger Technology & Digital",
-      icon: ktd,
-      iconBg: "#0c4b99",
-      date: "December 2020 - May 2023",
+      title: "Founding Full Stack Engineer",
+      company_name: "NetNeural.AI",
+      icon: null, // TODO: add NetNeural logo to src/assets/company/
+      iconBg: "#6366f1",
+      date: "July 2024 - Present",
       points: [
-        `Spearheaded development of an Android application utilizing a patented technology, resulting in anticipated savings of $1.3b in product waste for the company.`,
-        `Recognized for significant contributions with inclusion on patent documentation. Patent #20230316032`,
-        `Created a Digital Twin store environment using Nvidia Omniverse, Unity game engine, and Autodesk Revit and Maya that simulates the checkout process using AI/ML and video recognition.`,
-        `Simulation calculations help company pinpoint areas where labor costs can be saved.`,
+        `Architect and deploy a full-stack React and TypeScript application on cloud infrastructure, building production-level APIs via Supabase (PostgreSQL, Edge Functions, real-time subscriptions) and a self-hosted IoT broker stack on Digital Ocean supporting real-time device telemetry across multi-tenant architectures.`,
+        `Design and maintain a reusable component library serving as a shared design system across cross-functional product teams, reducing code duplication by 35% and accelerating feature delivery.`,
+        `Optimize application performance through profiling, state management, and component memoization, reducing render overhead by 30% and improving responsiveness across device configurations.`,
+        `Leverage AI tools including Claude Code and LLM API integrations to enhance development velocity and code quality as a standard part of the engineering workflow.`,
       ],
     },
     {
-      title: "Software Engineer - Android",
+      title: "Android Software Engineer",
       company_name: "Kroger Technology & Digital",
       icon: ktd,
       iconBg: "#0c4b99",
-      date: "August 2023 - May 2024",
+      date: "August 2023 - August 2024",
       points: [
-        `Maintained a previously shipped application utilized by associates throughout the enterprise, enhancing in-store associates' workflow.`,
-        `Built unit tests and Appium UI automation tests to verify and validate data passed through various frameworks within the Kroger ecosystem.`,
-        `Utilized both Android Studio and IntelliJ IDEA IDEs to engineer solutions using Kotlin, Jetpack Compose, XML, and Java`,
-        `Gained familiarity with Agile development, Scrum methodology, test driven design, continuous integration/continuous delivery (CI/CD), and full-stack engineering.`,
+        `Engineered and maintained a Kotlin and Java Android application serving 200,000+ associates, reducing UI rendering time by 25% by leading migration from legacy XML layouts to Jetpack Compose.`,
+        `Built and maintained a reusable Jetpack Compose component library aligned with platform design standards, reducing new feature development time by 40% across Agile sprint cycles.`,
+        `Drove test-driven development using Appium and JUnit, increasing test coverage by 75% and contributing to CI/CD pipeline improvements that accelerated deployment frequency.`,
+        `Served as primary engineer on the bakery department expansion, designing the second-chance kickout workflow and integrating RESTful backend services within Kroger's Zero Hunger, Zero Waste initiative.`,
+      ],
+    },
+    {
+      title: "Research & Development Co-op",
+      company_name: "Kroger Technology & Digital",
+      icon: ktd,
+      iconBg: "#0c4b99",
+      date: "December 2020 - August 2023",
+      points: [
+        `Designed and built a store associate Android application (US Patent No. US12007375B2) surfacing real-time fresh food freshness status and spoilage predictions, integrating NfcV sensor data with AI/ML inference.`,
+        `Engineered a Digital Twin store environment using NVIDIA Omniverse and Unity on Azure, building automated data pipelines that optimized customer throughput and staffing cost allocation; presented to directors as a solution to $1.3B in annual fresh food waste.`,
+        `Applied computer vision and machine learning to live sensor data, developing algorithms for automated decision-making workflows and mentoring onboarding interns.`,
       ],
     },
   ];
@@ -243,33 +226,103 @@ import {
       name: "Protify",
       date: "August 2023 - April 2024",
       description:
-        `AI-powered calendar application that helps users manage their time more effectively by analyzing their schedules and providing suggestions for optimal time management.`,
+        `Open-source Kotlin and Jetpack Compose Android app integrating OpenAI's API for intelligent event scheduling, achieving 90%+ accuracy in AI-generated output. Includes Google Maps and Weather.gov integrations for contextual scheduling.`,
       tags: [
         {
           name: "kotlin",
           color: "blue-text-gradient",
         },
         {
-          name: "android",
+          name: "jetpack-compose",
           color: "green-text-gradient",
+        },
+        {
+          name: "openai",
+          color: "purple-text-gradient",
         },
         {
           name: "firebase",
           color: "pink-text-gradient",
         },
-        {
-          name: "gpt-4o",
-          color: "purple-text-gradient",
-        }
       ],
       image: protify,
       source_code_link: "https://github.com/brendanpayne/protifyapp",
     },
     {
+      name: "Agentic AI Platform",
+      date: "2019 - Present",
+      description:
+        `Self-hosted agentic AI platform on a Raspberry Pi processing 10,000+ monthly requests. Features a provider-agnostic LLM router (DeepSeek, Gemini, Cloudflare AI), a 16-tool ReAct agent loop, four-tier autonomous memory system, and a self-critique hallucination guard.`,
+      tags: [
+        {
+          name: "node.js",
+          color: "green-text-gradient",
+        },
+        {
+          name: "javascript",
+          color: "yellow-text-gradient",
+        },
+        {
+          name: "llm-api",
+          color: "purple-text-gradient",
+        },
+        {
+          name: "raspberry-pi",
+          color: "pink-text-gradient",
+        },
+      ],
+      image: chatbot,
+      source_code_link: "https://github.com/brendanpayne",
+    },
+    {
+      name: "Card Maker",
+      date: "2023",
+      description:
+        `React web app for generating custom tabletop trading cards. Users configure a card's name, group, type, image, and description, then export the result as a PNG. Built for a friend's tabletop simulator game.`,
+      tags: [
+        {
+          name: "react",
+          color: "purple-text-gradient",
+        },
+        {
+          name: "javascript",
+          color: "yellow-text-gradient",
+        },
+        {
+          name: "html-canvas",
+          color: "blue-text-gradient",
+        },
+      ],
+      image: card,
+      source_code_link: "https://github.com/brendanpayne/card-maker",
+    },
+    {
+      name: "Portfolio Website",
+      date: "May 2024 - Present",
+      description:
+        `This portfolio — a React and Three.js SPA featuring interactive 3D physics simulations, katakana text-reveal animations, lazy-loaded WebGL canvases, and full accessibility support. Looks familiar, doesn't it?`,
+      tags: [
+        {
+          name: "react",
+          color: "purple-text-gradient",
+        },
+        {
+          name: "three.js",
+          color: "yellow-text-gradient",
+        },
+        {
+          name: "tailwind",
+          color: "blue-text-gradient",
+        },
+      ],
+      image: portfolio,
+      source_code_link: "https://github.com/brendanpayne/portfolio",
+    },
+    {
       name: "Pentango",
       date: "January 2022 - April 2022",
       description:
-        `Pentagon-shaped word game that challenges players to create words using a set of letters and earn points based on the length and complexity of the word.`,
+        `Pentagon-shaped word game challenging players to create words from a set of letters and earn points based on word length and complexity. Built entirely in vanilla JavaScript with no dependencies.`,
       tags: [
         {
           name: "javascript",
@@ -282,38 +335,16 @@ import {
         {
           name: "css",
           color: "blue-text-gradient",
-        }
+        },
       ],
       image: pentango,
       source_code_link: "https://github.com/brendanpayne/pentango",
     },
     {
-      name: "Portfolio Website",
-      date: "May 2024",
-      description:
-        `Personal portfolio website showcasing my work, skills, and experiences. Looks familiar, doesn't it?`,
-      tags: [
-        {
-          name: "react",
-          color: "purple-text-gradient",
-        },
-        {
-          name: "tailwind",
-          color: "blue-text-gradient",
-        },
-        {
-          name: "three.js",
-          color: "yellow-text-gradient",
-        }
-      ],
-      image: portfolio,
-      source_code_link: "https://github.com/brendanpayne/portfolio",
-    },
-    {
       name: "Neato DS4 Interface",
       date: "November 2020",
       description:
-        `Python script allowing a Neato Botvac D4 robot vacuum to be controlled with a DualShock 4 controller. Uses PyGame for controller input and Neato serial commands for vacuum control.`,
+        `Python script for controlling a Neato Botvac D4 robot vacuum with a DualShock 4 controller, using PyGame for controller input and Neato serial commands for vacuum control.`,
       tags: [
         {
           name: "python",
@@ -326,10 +357,10 @@ import {
         {
           name: "raspberry-pi",
           color: "pink-text-gradient",
-        }
+        },
       ],
       image: neato,
-      source_code_link: "https://github.com/brendanpayne/neato-ds4"
+      source_code_link: "https://github.com/brendanpayne/neato-ds4",
     },
   ]
 

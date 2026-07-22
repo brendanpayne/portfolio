@@ -28,6 +28,8 @@ import protify from "./works/protify.png";
 import pentango from "./works/pentango.png";
 import portfolio from "./works/portfolio.png";
 import neato from "./works/neato.png";
+import card from "./works/card.png";
+import chatbot from "./works/chatbot.png";
 
 import github from "./github.png";
 import linkedin from "./linkedin.png";
@@ -68,6 +70,8 @@ export {
   pentango,
   portfolio,
   neato,
+  card,
+  chatbot,
   github,
   linkedin,
   twitter,

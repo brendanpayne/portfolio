@@ -19,7 +19,9 @@ const ExperienceCard = ({ experience, index, total }) => {
       >
         <div className="flex flex-row items-center w-[80%]">
           <div className={`xl:w-16 xl:h-16 w-0 h-0 rounded-full flex items-center justify-center xl:p-3 p-0`} style={{ backgroundColor: experience.iconBg }}>
-            <img src={experience.icon} alt={`${experience.company_name} logo`} className="w-full h-full object-contain" />
+            {experience.icon && (
+              <img src={experience.icon} alt={`${experience.company_name} logo`} className="w-full h-full object-contain" />
+            )}
           </div>
           <div className="flex flex-col items-center mx-auto">
             <p className={`${styles.sectionSubText} text-white mt-2`}>{experience.company_name}</p>
